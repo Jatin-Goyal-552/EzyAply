@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container" >
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+          <div class="row">
+            <label for="{{ field.name}}">{{ field.label}}</label>{{ field }}
+         </div>
+         <br>
+    {% endfor %}
+              {{form.errors}}
+              <div id="success"></div>
+              <button type="submit" class="btn btn-primary btn-success">Apply</button>
+            </form>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

@@ -39,3 +39,13 @@ class Announcement(models.Model):
     an_id=models.AutoField(primary_key=True)
     announcement_date=models.CharField(max_length=200,null=True)
     announcement_text=models.TextField(max_length=1000, null=True)
+
+class Profile(models.Model):
+    p_id=models.AutoField(primary_key=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    phone_number=models.CharField(max_length=200,null=True)
+    sem=models.CharField(max_length=200,null=True)
+    cpi=models.CharField(max_length=200,null=True)
+    precentage_10=models.CharField(max_length=200,null=True)
+    precentage_12=models.CharField(max_length=200,null=True)
+    resume=models.FileField(null=True)

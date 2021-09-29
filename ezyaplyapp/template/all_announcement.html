@@ -1,10 +1,16 @@
 <!doctype html>
+{% load static %}
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'navigation/css/style.css' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -41,12 +47,13 @@
     }
     
     .spec-1 {
-        color: #938787;
-        font-size: 15px
+        color: #36393d;
+        font-size: 17px;
     }
     
     h5 {
-        font-weight: 400
+        font-weight: bold;
+    font-size: 28px;
     }
     
     .para {
@@ -54,47 +61,54 @@
     }
   </style>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'admin_home' %}"><button type="button" class="btn btn-warning">Home</button></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="{% url 'add_internship'  %}"><button type="button" class="btn btn-danger">Add Internship</button></a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'announcement'  %}"><button type="button" class="btn btn-success">Make Announcement</button></a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'all_announcement'  %}"><button type="button" class="btn btn-success">All Announcement</button></a>
-
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'admin_home' %}">EzyAply</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span> Menu
+          </button>
+          <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="{% url 'add_internship'  %}" class="nav-link">Add Internship</a></li> 
+                <li class="nav-item"><a href="{% url 'announcement'  %}" class="nav-link">Make Announcement</a></li>
+                <li class="nav-item"><a href="{% url 'all_announcement'  %}" class="nav-link">All Announcement</a></li>
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+                <li class="nav-item dropdown position-static">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
+              <div class="dropdown-menu p-4" aria-labelledby="dropdown04">
+                  <div class="row">
+                      <div class="col-md-3">
+                          <a class="dropdown-item" href="#">Page 1</a>
+                        <a class="dropdown-item" href="#">Page 2</a>
+                        <a class="dropdown-item" href="#">Page 3</a>
+                        <a class="dropdown-item" href="#">Page 4</a>
+                      </div>
+                      <div class="col-md-3 d-none d-md-block">
+                          <a href="#" class="img" style="background-image: url(images/img-1.jpg);"></a>
+                          <div class="text">
+                              <h3><a href="#">Amazing Architecture</a></h3>
+                              <span>Architect</span>
+                          </div>
+                      </div>
+                      <div class="col-md-3 d-none d-md-block">
+                          <a href="#" class="img" style="background-image: url(images/img-2.jpg);"></a>
+                          <div class="text">
+                              <h3><a href="#">Amazing Architecture</a></h3>
+                              <span>Architect</span>
+                          </div>
+                      </div>
+                      <div class="col-md-3 d-none d-md-block">
+                          <a href="#" class="img" style="background-image: url(images/img-3.jpg);"></a>
+                          <div class="text">
+                              <h3><a href="#">Amazing Architecture</a></h3>
+                              <span>Architect</span>
+                          </div>
+                      </div>
+                  </div>
               </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <a href="{% url 'logout' %}"><button type="button" class="btn btn-danger">Logout</button></a>
-
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+            </ul>
+          </div>
         </div>
       </nav>
     <h1>{{name}}</h1>
@@ -103,17 +117,23 @@
             <div class="col-md-10">
                 {% for announcement in announcements %}
                 
-                <div class="row p-2 bg-white border rounded">
+                <div class="row p-2 bg-white border rounded" style="margin-top: 20px;">
                     <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
                     <div class="col-md-10 mt-1">
-                        <h5>{{ announcement.announcement_date }}</h5>
+                        <h5 style="font-weight: 500">{{ announcement.announcement_date }}</h5>
                         
-                        <p class="text-justify text-truncate para mb-0">Description :- {{ announcement.announcement_text }}</p>
+                        <p class="text-justify text-truncate para mb-0"><span style="font-size: 19px;
+                            font-weight: 500;">Description :-</span><span style="font-size: 19px;"> {{ announcement.announcement_text }}</span></p>
                         
                     </div>
-                    
+                    <div style="margin-top: 20px;">
+                        <a href="{% url 'edit_announcement' announcement.an_id %}"><button class="btn btn-primary" type="button">Edit Announcement</button></a>
+                             <a href="{% url 'delete_announcement' announcement.an_id %}"><button class="btn btn-primary" type="button">Delete Announcement</button></a>
+                            
+                    </div>
                     <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                     </div>
+                    
                 </div>
                 {% endfor %}
                 <!-- <div class="row p-2 bg-white border rounded mt-2">
@@ -181,5 +201,9 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{% static 'navigation/js/jquery.min.js' %}"></script>
+    <script src="{% static 'navigation/js/popper.js' %}"></script>
+    <script src="{% static 'navigation/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'navigation/js/main.js' %}"></script>
   </body>
 </html>

@@ -1,10 +1,16 @@
 <!doctype html>
+{% load static %}
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'navigation/css/style.css' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -41,75 +47,134 @@
     }
     
     .spec-1 {
-        color: #938787;
-        font-size: 15px
+        color: #36393d;
+        font-size: 17px;
     }
     
     h5 {
-        font-weight: 400
+        font-weight: bold;
+    font-size: 28px;
     }
     
     .para {
         font-size: 16px
     }
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-      
-      td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-      }
-      
-      tr:nth-child(even) {
-        background-color: #dddddd;
-      }
+    body {
+      background: #eee
+  }
+  
+  .ratings i {
+      font-size: 16px;
+      color: red
+  }
+  
+  .strike-text {
+      color: red;
+      text-decoration: line-through
+  }
+  
+  .product-image {
+      width: 100%
+  }
+  
+  .dot {
+      height: 7px;
+      width: 7px;
+      margin-left: 6px;
+      margin-right: 6px;
+      margin-top: 3px;
+      background-color: blue;
+      border-radius: 50%;
+      display: inline-block
+  }
+  
+  .spec-1 {
+      color: #938787;
+      font-size: 15px
+  }
+  
+  h5 {
+      font-weight: 400
+  }
+  
+  .para {
+      font-size: 16px
+  }
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
   </style>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'admin_home' %}"><button type="button" class="btn btn-warning">Home</button></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="{% url 'add_internship'  %}"><button type="button" class="btn btn-danger">Add Internship</button></a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'download'  %}"><button type="button" class="btn btn-success">Download Responses</button></a>
-
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'admin_home' %}">EzyAply</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span> Menu
+          </button>
+          <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="{% url 'add_internship'  %}" class="nav-link">Add Internship</a></li> 
+                <li class="nav-item"><a href="{% url 'announcement'  %}" class="nav-link">Make Announcement</a></li>
+                <li class="nav-item"><a href="{% url 'all_announcement'  %}" class="nav-link">All Announcement</a></li>
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+                <li class="nav-item dropdown position-static">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
+              <div class="dropdown-menu p-4" aria-labelledby="dropdown04">
+                  <div class="row">
+                      <div class="col-md-3">
+                          <a class="dropdown-item" href="#">Page 1</a>
+                        <a class="dropdown-item" href="#">Page 2</a>
+                        <a class="dropdown-item" href="#">Page 3</a>
+                        <a class="dropdown-item" href="#">Page 4</a>
+                      </div>
+                      <div class="col-md-3 d-none d-md-block">
+                          <a href="#" class="img" style="background-image: url(images/img-1.jpg);"></a>
+                          <div class="text">
+                              <h3><a href="#">Amazing Architecture</a></h3>
+                              <span>Architect</span>
+                          </div>
+                      </div>
+                      <div class="col-md-3 d-none d-md-block">
+                          <a href="#" class="img" style="background-image: url(images/img-2.jpg);"></a>
+                          <div class="text">
+                              <h3><a href="#">Amazing Architecture</a></h3>
+                              <span>Architect</span>
+                          </div>
+                      </div>
+                      <div class="col-md-3 d-none d-md-block">
+                          <a href="#" class="img" style="background-image: url(images/img-3.jpg);"></a>
+                          <div class="text">
+                              <h3><a href="#">Amazing Architecture</a></h3>
+                              <span>Architect</span>
+                          </div>
+                      </div>
+                  </div>
               </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <a href="{% url 'logout' %}"><button type="button" class="btn btn-danger">Logout</button></a>
-
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+            </ul>
+          </div>
         </div>
       </nav>
+ <div>
+  <a href="{% url 'download'  %}"><button type="button" class="btn btn-success" style="margin: 20px 24px;
+    background-color: #141414e0;">Download Responses</button></a>
+
+</div>
+  
     <h1>{{name}}</h1>
-    <table>
+    <table style="margin-left:10px;margin-right:10px;">
         <tr>
           <th>Student</th>
           <th>Phone Number</th>

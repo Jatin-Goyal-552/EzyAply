@@ -16,5 +16,8 @@ urlpatterns=[
     path('all_announcements',views.all_announcements,name='all_announcement'),
     path('all_announcements_student',views.all_announcements_student,name='all_announcements_student'),
     path('edit_internship/<id>',views.edit_internship,name='edit_internship'),
-    path('delete_internship<id>',views.delete_internship,name='delete_internship')
+    path('delete_internship<id>',views.delete_internship,name='delete_internship'),
+    path('edit_announcement/<id>',views.edit_announcement,name='edit_announcement'),
+    path('delete_announcement/<id>',views.delete_announcement,name='delete_announcement'),
+    path('profile',views.profile,name='profile'),
 ]

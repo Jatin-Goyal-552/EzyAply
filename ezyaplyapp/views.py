@@ -196,7 +196,7 @@ def announcement(request):
         form = MadeAnnouncementForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('admin_home')
+            return redirect('all_announcement')
         else:
             return redirect('announcement')
     context = {'form':form,
@@ -219,20 +219,20 @@ def all_announcements_student(request):
     return render(request, 'all_announcements_student.html',context)
 
 def edit_internship(request,id):
-    intern=Internships.objects.filter(iid=id)
-    initial_data={
-        'company_name':intern[0].company_name,
-        'description':intern[0].description,
-        'duration':intern[0].duration,
-        'cpi':intern[0].cpi,
-        'semester':intern[0].semester,
-        'other_qualifications':intern[0].other_qualifications,
-        'stipend':intern[0].stipend,
-        'date':intern[0].date
-    }
-    form=AddInternshipForm(initial=initial_data)
+    intern=Internships.objects.get(iid=id)
+    # initial_data={
+    #     'company_name':intern[0].company_name,
+    #     'description':intern[0].description,
+    #     'duration':intern[0].duration,
+    #     'cpi':intern[0].cpi,
+    #     'semester':intern[0].semester,
+    #     'other_qualifications':intern[0].other_qualifications,
+    #     'stipend':intern[0].stipend,
+    #     'date':intern[0].date
+    # }
+    form=AddInternshipForm(instance=intern)
     if request.method == 'POST':
-        form = AddInternshipForm(request.POST)
+        form = AddInternshipForm(request.POST,instance=intern)
         if form.is_valid():
             form.save()
             return redirect('admin_home')
@@ -246,3 +246,31 @@ def delete_internship(request,id):
     intern=Internships.objects.get(iid=id)
     intern.delete()
     return redirect('admin_home')
+
+def edit_announcement(request,id):
+    announcement=Announcement.objects.get(an_id=id)
+    form=MadeAnnouncementForm(instance=announcement)
+    if request.method == 'POST':
+        form = MadeAnnouncementForm(request.POST,instance=announcement)
+        if form.is_valid():
+            form.save()
+            return redirect('all_announcement')
+        else:
+            return redirect('edit_announcement')
+    context = {'form':form,
+    'user_id':request.user.id}
+    return render(request, 'edit_announcement.html',context)
+
+def delete_announcement(request,id):
+    announcement=Announcement.objects.get(an_id=id)
+    announcement.delete()
+    return redirect('all_announcement')
+
+def profile(request):
+    # user=User.objects.get(id=request.user.id)
+    profile=Profile.objects.get(user=request.user.id)
+    context={
+        'profile':profile,
+        'user_id':request.user.id
+    }
+    return render(request,'profile.html',context)

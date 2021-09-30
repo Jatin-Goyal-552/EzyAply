@@ -31,3 +31,8 @@ class MadeAnnouncementForm(forms.ModelForm):
         model=Announcement
         fields=['announcement_date','announcement_text']
 
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model=Profile
+        fields=['user','phone_number','sem','cpi','precentage_10','precentage_12','resume']
+

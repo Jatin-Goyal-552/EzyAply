@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CreateUserForm,ApplyForm,AddInternshipForm,MadeAnnouncementForm
+from .forms import CreateUserForm,ApplyForm,AddInternshipForm,MadeAnnouncementForm,ProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 import collections
@@ -89,18 +89,21 @@ def home(request):
 
 def apply(request,id):
     intern=Internships.objects.filter(iid=id)
-    print("==========",intern)
+    # print("==========",intern)
+    profile=Profile.objects.filter(user=request.user.id)
     initial_data={  
         'a_id':1,
         'user': request.user.id,
         'internship':intern[0].iid,
-        'phone_number':'',
-        'sem':'', 
-        'cpi':'', 
-        'precentage_10':'', 
-        'precentage_12':'', 
-        'resume':''
+        'phone_number':profile[0].phone_number,
+        'sem':profile[0].sem, 
+        'cpi':profile[0].cpi, 
+        'precentage_10':profile[0].precentage_10, 
+        'precentage_12':profile[0].precentage_12, 
+        'resume':profile[0].resume
     }
+    
+    # initial_data=profile
     print("------------------------")
     print(initial_data)
     form=ApplyForm(initial=initial_data)
@@ -268,9 +271,47 @@ def delete_announcement(request,id):
 
 def profile(request):
     # user=User.objects.get(id=request.user.id)
-    profile=Profile.objects.get(user=request.user.id)
-    context={
-        'profile':profile,
-        'user_id':request.user.id
+    try:
+        profile=Profile.objects.filter(user=request.user.id)
+        print("profile",profile[0].user)
+        print("hello")
+        return render(request,'profile.html',{
+                'profile':profile[0],
+                'user_id':request.user.id
+                })
+        
+
+    except:
+        print("hii")
+        return render(request, 'add_profile.html',{'user_id':request.user.id})
+    
+
+def edit_profile(request,id):
+    profile=Profile.objects.get(p_id=id)
+    form=ProfileForm(instance=profile)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST,request.FILES,instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+        else:
+            return redirect('edit_profile')
+    context = {'form':form,
+    'user_id':request.user.id}
+    return render(request, 'edit_profile.html',context)
+
+def form_profile(request,id):
+    initial_data={
+        'user':request.user.id,
     }
-    return render(request,'profile.html',context)
+    form=ProfileForm(initial=initial_data)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST,request.FILES,initial=initial_data)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+        else:
+            return redirect('form_profile')
+    context = {'form':form,
+    'user_id':request.user.id}
+    return render(request, 'form_profile.html',context)

@@ -71,8 +71,6 @@
             <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a></li> 
                 <li class="nav-item"><a href="all_announcements_student" class="nav-link">All Announcement</a></li>
-                <li class="nav-item"><a href="profile" class="nav-link">Profile</a></li>
-
                 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
                 <li class="nav-item dropdown position-static">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
@@ -151,37 +149,18 @@
         </div>
       </nav> -->
     <h1>{{name}}</h1>
-    <div class="container mt-5 mb-5">
+    <a href="{% url 'form_profile' user_id %}"><button class="btn btn-primary" type="button">Add Profile</button></a></div>
+
+    <!-- <div class="container mt-5 mb-5">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
-                {% for internship in internships %}
-                
-                <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">
-                    <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
-                    <div class="col-md-10">
-                        <h5>{{ internship.company_name }}</h5>
-                        <div class="d-flex flex-row">
-                            <!-- <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
-                            <!-- <span>Duration :- {{ internship.duration }}</span> -->
-                        </div>
-                        <div class="mt-1 mb-1 spec-1"><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Duration :- {{ internship.duration }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Min. CPI :- {{ internship.cpi }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Date and Time :- {{ internship.date }}</span></div>
-                        <!-- <div class="mt-1 mb-1 spec-1"><span>Date and Time :- {{ internship.date }}</span></div> -->
-                        <p class="text-justify para mb-0"><span style="font-size: 19px;
-                            font-weight: 500;">Description :-</span><span style="font-size: 19px;
-                            "> {{ internship.description }}</span></p>
-                        <p class="text-justify para mb-0"><span style="font-size: 19px;
-                            font-weight: 500;">Other Criteria :- </span><span style="font-size: 19px;
-                            ">{{ internship.other_qualifications }}</span></p>
-                    </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1" style="margin-top: -0.15rem!important;">
-                        <!-- <div class="d-flex flex-row align-items-center">
-                            <h4 class="mr-1">$13.99</h4><span class="strike-text">$20.99</span>
-                        </div>
-                        <h6 class="text-success">Free shipping</h6> -->
-                        <div class="d-flex flex-column mt-4" ><a href="{% url 'apply'  internship.iid %}"><button class="btn btn-info" btn-roundedtype="button">Apply</button></a></div>
-                    </div>
-                </div>
-                {% endfor %}
+                {{profile.user}}
+                {{profile.phone_number}}
+                {{profile.sem}}
+                {{profile.cpi}}
+                {{profile.precentage_10}}
+                {{profile.precentage_12}}
+                <div>-->
                 <!-- <div class="row p-2 bg-white border rounded mt-2">
                    
                     <div class="col-md-6 mt-1">
@@ -239,9 +218,9 @@
                         <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button></div>
                     </div>
                 </div> -->
-            </div>
+            <!-- </div>
         </div>
-    </div>
+    </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

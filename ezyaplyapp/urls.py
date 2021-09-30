@@ -20,4 +20,6 @@ urlpatterns=[
     path('edit_announcement/<id>',views.edit_announcement,name='edit_announcement'),
     path('delete_announcement/<id>',views.delete_announcement,name='delete_announcement'),
     path('profile',views.profile,name='profile'),
+    path("edit_profile/<id>",views.edit_profile,name="edit_profile"),
+    path("form_profile/<id>",views.form_profile,name="form_profile")
 ]

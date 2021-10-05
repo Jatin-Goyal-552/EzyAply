@@ -1,10 +1,37 @@
 <!doctype html>
+{% load static %}
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" href="{% static 'form/images/icons/favicon.ico' %}"/>
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'form/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'form/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'form/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'form/vendor/animate/animate.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'form/vendor/css-hamburgers/hamburgers.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'form/vendor/select2/select2.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'form/vendor/daterangepicker/daterangepicker.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'form/vendor/noui/nouislider.min.css' %}">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="{% static 'form/css/util.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'form/css/main.css' %}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'navigation/css/style.css' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -41,21 +68,84 @@
     }
     
     .spec-1 {
-        color: #938787;
-        font-size: 15px
+        color: #36393d;
+        font-size: 17px;
     }
     
     h5 {
-        font-weight: 400
+        font-weight: bold;
+    font-size: 28px;
     }
     
     .para {
         font-size: 16px
     }
+    input{
+      width: 100%;
+    height: 38px;
+    background-color: #f4f4f4;
+    }
+    textarea {
+      overflow: auto;
+      resize: vertical;
+      width: 100%;
+  }
   </style>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="{% url 'home' %}"><button type="button" class="btn btn-warning">Home</button></a>        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">EzyAply</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span> Menu
+          </button>
+          <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a></li> 
+                <li class="nav-item"><a href="all_announcements_student" class="nav-link">All Announcement</a></li>
+                <li class="nav-item"><a href="profile" class="nav-link">Profile</a></li>
+
+                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+                <li class="nav-item dropdown position-static">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
+              <div class="dropdown-menu p-4" aria-labelledby="dropdown04">
+                  <div class="row">
+                      <div class="col-md-3">
+                          <a class="dropdown-item" href="#">Page 1</a>
+                        <a class="dropdown-item" href="#">Page 2</a>
+                        <a class="dropdown-item" href="#">Page 3</a>
+                        <a class="dropdown-item" href="#">Page 4</a>
+                      </div>
+                      <div class="col-md-3 d-none d-md-block">
+                          <a href="#" class="img" style="background-image: url(images/img-1.jpg);"></a>
+                          <div class="text">
+                              <h3><a href="#">Amazing Architecture</a></h3>
+                              <span>Architect</span>
+                          </div>
+                      </div>
+                      <div class="col-md-3 d-none d-md-block">
+                          <a href="#" class="img" style="background-image: url(images/img-2.jpg);"></a>
+                          <div class="text">
+                              <h3><a href="#">Amazing Architecture</a></h3>
+                              <span>Architect</span>
+                          </div>
+                      </div>
+                      <div class="col-md-3 d-none d-md-block">
+                          <a href="#" class="img" style="background-image: url(images/img-3.jpg);"></a>
+                          <div class="text">
+                              <h3><a href="#">Amazing Architecture</a></h3>
+                              <span>Architect</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'home' %}"><button type="button" class="btn btn-warning">Home</button></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
@@ -66,7 +156,7 @@
 
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+                <a href="{% url 'all_announcements_student'  %}"><button type="button" class="btn btn-danger">All Announcemnts</button></a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,27 +180,175 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
         </div>
-      </nav>
-    <div class="container" >
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <form method="POST" action="" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for field in form %}
-          <div class="row">
-            <label for="{{ field.name}}">{{ field.label}}</label>{{ field }}
-         </div>
-         <br>
-    {% endfor %}
-              {{form.errors}}
-              <div id="success"></div>
-              <button type="submit" class="btn btn-primary btn-success">Apply</button>
-            </form>
+      </nav> -->
+    <h1>{{name}}</h1>
+    <!-- <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+      <br>
+      <br>
+      {{form.errors}}
+      <div id="success"></div>
+      <button type="submit" class="btn btn-primary" id="sendMessageButton">Post</button>
+    </form> -->
+    <div class="container-contact100">
+      <div class="wrap-contact100">
+        <form class="contact100-form validate-form" method="POST" action="" enctype="multipart/form-data">
+          {% csrf_token %}
+          <span class="contact100-form-title">
+            Apply
+          </span>
+          <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name" style="display: none;">
+            <span class="label-input100">User</span>
+            <div>
+            {{ form.user}}
+            </div>
           </div>
-        </div>
+          <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name" style="display: none;">
+            <span class="label-input100">Internship</span>
+            <div>
+            {{ form.internship}}
+            </div>
+          </div>
+          <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+            <span class="label-input100">Phone Number</span>
+            <div>
+            {{ form.phone_number}}
+            </div>
+          </div>
+  
+          <!-- <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
+            <span class="label-input100">Company Description</span>
+            <div>
+            {{ form.Sem}}</div>
+          </div> -->
+          <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Please Type Your Name">
+            <span class="label-input100">Semester</span>
+            <div>
+            {{ form.sem}}
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Please Type Your Name">
+            <span class="label-input100">CPI</span>
+            <div>
+            {{ form.cpi}}
+            </div>
+          </div>
+          <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Please Type Your Name">
+            <span class="label-input100">10th Precentage</span>
+            <div>
+            {{ form.precentage_10}}
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Please Type Your Name">
+            <span class="label-input100">12th Precentage</span>
+            <div>
+            {{ form.precentage_12}}
+            </div>
+          </div>
+          <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+            <span class="label-input100">Resume</span>
+            <div>
+            {{ form.resume}}
+            </div>
+          </div>
+           
+          <div class="container-contact100-form-btn">
+            <button class="contact100-form-btn">
+              <span>
+                Apply
+                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+        </form>
       </div>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
-  </html>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{% static 'navigation/js/jquery.min.js' %}"></script>
+  <script src="{% static 'navigation/js/popper.js' %}"></script>
+  <script src="{% static 'navigation/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'navigation/js/main.js' %}"></script>
+  <script src="{% static 'form/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'form/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'form/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'form/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'form/vendor/select2/select2.min.js' %}"></script>
+	<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+
+
+			$(".js-select2").each(function(){
+				$(this).on('select2:close', function (e){
+					if($(this).val() == "Please chooses") {
+						$('.js-show-service').slideUp();
+					}
+					else {
+						$('.js-show-service').slideUp();
+						$('.js-show-service').slideDown();
+					}
+				});
+			});
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'form/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'form/vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'form/vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'form/vendor/noui/nouislider.min.js' %}"></script>
+	<script>
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 1500, 3900 ],
+	        connect: true,
+	        range: {
+	            'min': 1500,
+	            'max': 7500
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]);
+	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+	    });
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static 'form/js/main.js' %}"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+
+  document.getElementById("id_announcement_date").placeholder = "Date";
+  document.getElementById("id_announcement_text").placeholder = "Please Type Announcement Here.....";
+</script>
+  </body>
+</html>

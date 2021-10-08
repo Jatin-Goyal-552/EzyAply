@@ -51,7 +51,7 @@
         font-size: 17px;
     }
     
-    h5 {
+    .companyname {
         font-weight: bold;
     font-size: 28px;
     }
@@ -73,90 +73,17 @@
                 <li class="nav-item"><a href="{% url 'announcement'  %}" class="nav-link">Make Announcement</a></li>
                 <li class="nav-item"><a href="{% url 'all_announcement'  %}" class="nav-link">All Announcement</a></li>
                 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
-                <li class="nav-item dropdown position-static">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
-              <div class="dropdown-menu p-4" aria-labelledby="dropdown04">
-                  <div class="row">
-                      <div class="col-md-3">
-                          <a class="dropdown-item" href="#">Page 1</a>
-                        <a class="dropdown-item" href="#">Page 2</a>
-                        <a class="dropdown-item" href="#">Page 3</a>
-                        <a class="dropdown-item" href="#">Page 4</a>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-1.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-2.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-3.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </li>
+                
             </ul>
           </div>
         </div>
       </nav>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'admin_home' %}"><button type="button" class="btn btn-warning">Home</button></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="{% url 'add_internship'  %}"><button type="button" class="btn btn-danger">Add Internship</button></a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'announcement'  %}"><button type="button" class="btn btn-success">Make Announcement</button></a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'all_announcement'  %}"><button type="button" class="btn btn-success">All Announcement</button></a>
-
-            </li>
-           
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <a href="{% url 'logout' %}"><button type="button" class="btn btn-danger">Logout</button></a>
-
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav> -->
-    <h1>{{name}}</h1>
-    <div class="container mt-5 mb-5">
+    
+      <div id="usernamediv" style="text-align:center;margin-top: 62px;">
+        <h1 id="username"><span style="background-color: #fdfffaab;
+            padding: 17px;
+            font-family:Arial, sans-serif;font-size:33px;text-transform: uppercase;">{{name}}</span></h1>
+        </div>    <div class="container mt-5 mb-5">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
                 {% for internship in internships %}
@@ -164,29 +91,50 @@
                 <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">
                     <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
                     <div class="col-md-10">
-                        <h5>{{ internship.company_name }}</h5>
-                        <!-- <div class="d-flex flex-row"> -->
+                        <h5 class="companyname" style="font-family:Arial, sans-serif;margin-top: 24px;
+                    ">{{ internship.company_name }}</h5>
+                        <h5 style="font-family:Arial, sans-serif;margin-top: 14px;
+                        margin-bottom: 16px;">{{ internship.intern_role }}</h5>
+                        <div class="d-flex flex-row">
                             <!-- <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
                             <!-- <span>Duration :- {{ internship.duration }}</span> -->
-                        <!-- </div> -->
-                        <div class="mt-1 mb-1 spec-1"><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Duration :- {{ internship.duration }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Min. CPI :- {{ internship.cpi }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Date and Time :- {{ internship.date }}</span></div>
+                        </div>
+                        <div class="mt-1 mb-1 spec-1"><div><span style="margin-right: 12px;" class="dot"></span><span
+                                style="margin-right: 12px;">Duration :- {{ internship.duration }}</span><span
+                                style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Min.
+                                CPI :- {{ internship.cpi }}</span><span style="margin-right: 12px;"
+                                class="dot"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}
+                            </span><span style="margin-right: 12px;" class="dot"></span><span
+                                style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span></div>
+                                <div style="margin-top: 7px;"><span
+                                style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Date
+                                and Time :- {{ internship.date }}</span></div></div>
                         <!-- <div class="mt-1 mb-1 spec-1"><span>Date and Time :- {{ internship.date }}</span></div> -->
+                        <div style="margin-top: 17px;">
                         <p class="text-justify para mb-0"><span style="font-size: 19px;
-                            font-weight: 500;">Description :-</span><span style="font-size: 19px;
+                            font-weight: 700;">Description :-</span><span style="font-size: 19px;
                             "> {{ internship.description }}</span></p>
+                        </div>
+                        <div style="margin-top: 10px;">
                         <p class="text-justify para mb-0"><span style="font-size: 19px;
-                            font-weight: 500;">Other Criteria :- </span><span style="font-size: 19px;
-                            ">{{ internship.other_qualifications }}</span></p>
+                            font-weight: 700;">Other Criteria :- </span><span style="font-size: 19px;
+                            ">{{ internship.other_qualifications }}</span></p></div>
                     </div>
                     <!-- <div class="align-items-center align-content-center col-md-3 border-left mt-1"> -->
                         <!-- <div class="d-flex flex-row align-items-center">
                             <h4 class="mr-1">$13.99</h4><span class="strike-text">$20.99</span>
                         </div>
                         <h6 class="text-success">Free shipping</h6> -->
-                    <div style="margin-top: 20px;">
-                        <a href="{% url 'view_responses'  internship.iid %}"><button class="btn btn-primary" type="button">View Responses</button></a>
-                             <a href="{% url 'edit_internship'  internship.iid %}"><button class="btn btn-primary" type="button">Edit Internship</button></a>
-                            <a href="{% url 'delete_internship'  internship.iid %}"><button class="btn btn-primary" type="button">Delete Internship</button></a>
+                    <div style="margin-top: 20px;margin-bottom: 24px;">
+                        <a href="{% url 'view_responses'  internship.iid %}"><button class="btn btn-primary" type="button" style="padding: 11px 15px;
+                            font-size: 15px;border-color: aliceblue;
+                            border-radius: 18px;    background-color: #2b2d84;">View Responses</button></a>
+                             <a href="{% url 'edit_internship'  internship.iid %}"><button class="btn btn-primary" type="button"  style="padding: 11px 15px;
+                                font-size: 15px;border-color: aliceblue;
+                                border-radius: 18px;    background-color: #2b2d84;">Edit Internship</button></a>
+                            <a href="{% url 'delete_internship'  internship.iid %}"><button class="btn btn-primary" type="button"  style="padding: 11px 15px;
+                                font-size: 15px;border-color: aliceblue;
+                                border-radius: 18px;    background-color: #2b2d84;">Delete Internship</button></a>
                     </div>
                     <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                     </div>

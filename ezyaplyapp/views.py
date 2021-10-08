@@ -49,10 +49,11 @@ def check_otp(request):
             user = User.objects.create_user(username=username,email=email,password=password)
             user.save()
             print('user created')
+            messages.info(request,"You are now registered... Please login to continue.")
             return redirect('login')
         else:
             messages.info(request,"OTP didn't match, Please register again.")
-            return redirect('check_otp')
+            return render(request, 'otp2.html')
 
 def login1(request):
     if request.method == 'POST':
@@ -115,18 +116,23 @@ def home(request):
 def apply(request,id):
     intern=Internships.objects.filter(iid=id)
     # print("==========",intern)
-    profile=Profile.objects.filter(user=request.user.id)
-    initial_data={  
-        'a_id':1,
-        'user': request.user.id,
-        'internship':intern[0].iid,
-        'phone_number':profile[0].phone_number,
-        'sem':profile[0].sem, 
-        'cpi':profile[0].cpi, 
-        'precentage_10':profile[0].precentage_10, 
-        'precentage_12':profile[0].precentage_12, 
-        'resume':profile[0].resume
-    }
+    try:
+        profile=Profile.objects.filter(user=request.user.id)
+        initial_data={  
+            'a_id':1,
+            'user': request.user.id,
+            'internship':intern[0].iid,
+            'phone_number':profile[0].phone_number,
+            'sem':profile[0].sem, 
+            'cpi':profile[0].cpi, 
+            'precentage_10':profile[0].precentage_10, 
+            'precentage_12':profile[0].precentage_12, 
+            'resume':profile[0].resume
+        }
+    except:
+        messages.warning(request, 'Before Applying...Please Add Your Profile First. ')
+        return redirect('profile')
+
     
     # initial_data=profile
     print("------------------------")
@@ -139,7 +145,7 @@ def apply(request,id):
         # if data == request.user.id: 
         if form.is_valid():
             form.save()
-            return redirect('home')
+            return redirect('/internship_applied')
         else:
             print("--------",form.errors)
             return redirect('apply')
@@ -190,7 +196,8 @@ def view_responses(request,id):
     response_id=id
     print("===============------",responses)
     context={
-        'responses':responses
+        'responses':responses,
+        'email':request.user.email,
     }
     return render(request, 'view_responses.html',context)
 
@@ -303,7 +310,8 @@ def profile(request):
         print("hello")
         return render(request,'profile.html',{
                 'profile':profile[0],
-                'user_id':request.user.id
+                'user_id':request.user.id,
+                'email':request.user.email,
                 })
         
 

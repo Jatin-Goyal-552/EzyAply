@@ -149,8 +149,13 @@
         </div>
       </nav> -->
     <h1>{{name}}</h1>
-    <a href="{% url 'form_profile' user_id %}"><button class="btn btn-primary" type="button">Add Profile</button></a></div>
-
+    {% for message in messages %}
+<div style="margin: 10% 40%;">{{message}}</div>
+{% endfor %}
+    <!-- <a href="{% url 'form_profile' user_id %}"><button class="btn btn-primary" type="button">Add Profile</button></a></div> -->
+    <a href="{% url 'form_profile' user_id %}"><button class="btn btn-primary" type="button"  style="padding: 11px 15px;
+        font-size: 15px;border-color: aliceblue;
+        border-radius: 18px;    background-color: #2b2d84;margin: 0% 50%;">Add Profile</button></a>
     <!-- <div class="container mt-5 mb-5">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">

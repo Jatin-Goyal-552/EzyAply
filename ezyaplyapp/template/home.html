@@ -2,39 +2,41 @@
 {% load static %}
 
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="{% static 'navigation/css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'navigation/css/style.css' %}">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <title>Hello, world!</title>
-  </head>
-  <style>
+</head>
+<style>
     body {
         background: #eee
     }
-    
+
     .ratings i {
         font-size: 16px;
         color: red
     }
-    
+
     .strike-text {
         color: red;
         text-decoration: line-through
     }
-    
+
     .product-image {
         width: 100%
     }
-    
+
     .dot {
         height: 7px;
         width: 7px;
@@ -45,211 +47,121 @@
         border-radius: 50%;
         display: inline-block
     }
-    
+
     .spec-1 {
         color: #36393d;
         font-size: 17px;
     }
-    
-    h5 {
+
+    .companyname {
         font-weight: bold;
-    font-size: 28px;
+        font-size: 28px;
     }
-    
+
     .para {
         font-size: 16px
     }
-  </style>
-  <body>
+</style>
+
+<body>
     <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">EzyAply</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fa fa-bars"></span> Menu
-          </button>
-          <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a></li> 
-                <li class="nav-item"><a href="all_announcements_student" class="nav-link">All Announcement</a></li>
-                <li class="nav-item"><a href="profile" class="nav-link">Profile</a></li>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <!-- <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship
+                        Applied</a></li> -->
+                    <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship
+                            Applied</a></li>
+                    <li class="nav-item"><a href="all_announcements_student" class="nav-link">All Announcement</a></li>
+                    <li class="nav-item"><a href="profile" class="nav-link">Profile</a></li>
 
-                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
-                <li class="nav-item dropdown position-static">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
-              <div class="dropdown-menu p-4" aria-labelledby="dropdown04">
-                  <div class="row">
-                      <div class="col-md-3">
-                          <a class="dropdown-item" href="#">Page 1</a>
-                        <a class="dropdown-item" href="#">Page 2</a>
-                        <a class="dropdown-item" href="#">Page 3</a>
-                        <a class="dropdown-item" href="#">Page 4</a>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-1.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-2.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-3.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </li>
-            </ul>
-          </div>
+                    <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+                    
+                </ul>
+            </div>
         </div>
-      </nav>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}"><button type="button" class="btn btn-warning">Home</button></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="{% url 'internship_applied' user_id  %}"><button type="button" class="btn btn-danger">Internship Applied</button></a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'all_announcements_student'  %}"><button type="button" class="btn btn-danger">All Announcemnts</button></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <a href="{% url 'logout' %}"><button type="button" class="btn btn-danger">Logout</button></a>
-
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav> -->
-    <h1>{{name}}</h1>
+    </nav>
+    
+    <div id="usernamediv" style="text-align:center;margin-top: 62px;">
+        <h1 id="username"><span style="background-color: #fdfffaab;
+        padding: 17px;
+        font-family:Arial, sans-serif;font-size:33px;text-transform: uppercase;">{{name}}</span></h1>
+    </div>
     <div class="container mt-5 mb-5">
-        <div class="d-flex justify-content-center row">
+        <div class="d-flex justify-content-center row" style="font-family:Arial, sans-serif;">
             <div class="col-md-10">
                 {% for internship in internships %}
-                
+
                 <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">
                     <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
                     <div class="col-md-10">
-                        <h5>{{ internship.company_name }}</h5>
+                        <h5 class="companyname" style="font-family:Arial, sans-serif;margin-top: 24px;
+                    ">{{ internship.company_name }}</h5>
+                        <h5 style="font-family:Arial, sans-serif;margin-top: 14px;
+                        margin-bottom: 16px;">{{ internship.intern_role }}</h5>
                         <div class="d-flex flex-row">
                             <!-- <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
                             <!-- <span>Duration :- {{ internship.duration }}</span> -->
                         </div>
-                        <div class="mt-1 mb-1 spec-1"><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Duration :- {{ internship.duration }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Min. CPI :- {{ internship.cpi }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span><span style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Date and Time :- {{ internship.date }}</span></div>
+                        <div class="mt-1 mb-1 spec-1"><div><span style="margin-right: 12px;" class="dot"></span><span
+                                style="margin-right: 12px;">Duration :- {{ internship.duration }}</span><span
+                                style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Min.
+                                CPI :- {{ internship.cpi }}</span><span style="margin-right: 12px;"
+                                class="dot"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}
+                            </span><span style="margin-right: 12px;" class="dot"></span><span
+                                style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span></div>
+                                <div style="margin-top: 7px;"><span
+                                style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Date
+                                and Time :- {{ internship.date }}</span></div></div>
                         <!-- <div class="mt-1 mb-1 spec-1"><span>Date and Time :- {{ internship.date }}</span></div> -->
+                        <div style="margin-top: 17px;">
                         <p class="text-justify para mb-0"><span style="font-size: 19px;
-                            font-weight: 500;">Description :-</span><span style="font-size: 19px;
+                            font-weight: 700;">Description :-</span><span style="font-size: 19px;
                             "> {{ internship.description }}</span></p>
+                        </div>
+                        <div style="margin-top: 10px;">
                         <p class="text-justify para mb-0"><span style="font-size: 19px;
-                            font-weight: 500;">Other Criteria :- </span><span style="font-size: 19px;
-                            ">{{ internship.other_qualifications }}</span></p>
+                            font-weight: 700;">Other Criteria :- </span><span style="font-size: 19px;
+                            ">{{ internship.other_qualifications }}</span></p></div>
                     </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1" style="margin-top: -0.15rem!important;">
+                    <div class="align-items-center align-content-center col-md-3 border-left mt-1"
+                        style="margin-top: -0.15rem!important;">
                         <!-- <div class="d-flex flex-row align-items-center">
                             <h4 class="mr-1">$13.99</h4><span class="strike-text">$20.99</span>
                         </div>
                         <h6 class="text-success">Free shipping</h6> -->
-                        <div class="d-flex flex-column mt-4" ><a href="{% url 'apply'  internship.iid %}"><button class="btn btn-info" btn-roundedtype="button">Apply</button></a></div>
+                        <div class="d-flex flex-column mt-4" style="    margin-bottom: 24px;"><a href="{% url 'apply'  internship.iid %}"><button style="padding: 8px 18px;
+                            font-size: 18px;
+                            border-color: aliceblue;
+                            border-radius: 18px;    background-color: #2b2d84;"
+                                    class="btn btn-info" btn-roundedtype="button">Apply</button></a></div>
                     </div>
                 </div>
                 {% endfor %}
-                <!-- <div class="row p-2 bg-white border rounded mt-2">
-                   
-                    <div class="col-md-6 mt-1">
-                        <h5>Quant trident shirts</h5>
-                        <div class="d-flex flex-row">
-                            <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>310</span>
-                        </div>
-                        <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                        <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
-                        <p class="text-justify text-truncate para mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br></p>
-                    </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                        <div class="d-flex flex-row align-items-center">
-                            <h4 class="mr-1">$14.99</h4><span class="strike-text">$20.99</span>
-                        </div>
-                        <h6 class="text-success">Free shipping</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button></div>
-                    </div>
-                </div>
-                <div class="row p-2 bg-white border rounded mt-2">
-                   
-                    <div class="col-md-6 mt-1">
-                        <h5>Quant ruybi shirts</h5>
-                        <div class="d-flex flex-row">
-                            <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>123</span>
-                        </div>
-                        <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                        <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
-                        <p class="text-justify text-truncate para mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br></p>
-                    </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                        <div class="d-flex flex-row align-items-center">
-                            <h4 class="mr-1">$13.99</h4><span class="strike-text">$20.99</span>
-                        </div>
-                        <h6 class="text-success">Free shipping</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button></div>
-                    </div>
-                </div>
-                <div class="row p-2 bg-white border rounded mt-2">
-                   
-                    <div class="col-md-6 mt-1">
-                        <h5>Quant tinor shirts</h5>
-                        <div class="d-flex flex-row">
-                            <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>110</span>
-                        </div>
-                        <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                        <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
-                        <p class="text-justify text-truncate para mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br></p>
-                    </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                        <div class="d-flex flex-row align-items-center">
-                            <h4 class="mr-1">$15.99</h4><span class="strike-text">$21.99</span>
-                        </div>
-                        <h6 class="text-success">Free shipping</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button></div>
-                    </div>
-                </div> -->
+
             </div>
         </div>
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <script src="{% static 'navigation/js/jquery.min.js' %}"></script>
-  <script src="{% static 'navigation/js/popper.js' %}"></script>
-  <script src="{% static 'navigation/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'navigation/js/main.js' %}"></script>
-  </body>
+    <script src="{% static 'navigation/js/popper.js' %}"></script>
+    <script src="{% static 'navigation/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'navigation/js/main.js' %}"></script>
+</body>
+
 </html>

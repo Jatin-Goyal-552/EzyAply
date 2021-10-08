@@ -105,7 +105,7 @@
                 <li class="nav-item"><a href="{% url 'announcement'  %}" class="nav-link">Make Announcement</a></li>
                 <li class="nav-item"><a href="{% url 'all_announcement'  %}" class="nav-link">All Announcement</a></li>
                 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
-                <li class="nav-item dropdown position-static">
+                <!-- <li class="nav-item dropdown position-static">
               <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
               <div class="dropdown-menu p-4" aria-labelledby="dropdown04">
                   <div class="row">
@@ -138,7 +138,7 @@
                       </div>
                   </div>
               </div>
-            </li>
+            </li> -->
             </ul>
           </div>
         </div>
@@ -193,6 +193,12 @@
               <span class="label-input100">Company Name</span>
               <div>
               {{ form.company_name}}
+              </div>
+            </div>
+            <div class="wrap-input100 validate-input bg1" data-validate="Please Type Your Name">
+              <span class="label-input100">Intern Role</span>
+              <div>
+              {{ form.intern_role}}
               </div>
             </div>
             <div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">

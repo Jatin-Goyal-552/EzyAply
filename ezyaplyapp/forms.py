@@ -24,7 +24,7 @@ class ApplyForm(forms.ModelForm):
 class AddInternshipForm(forms.ModelForm):
     class Meta:
         model=Internships
-        fields=['company_name','description','duration','cpi','semester','other_qualifications','stipend','date']
+        fields=['company_name','intern_role','description','duration','cpi','semester','other_qualifications','stipend','date']
 
 class MadeAnnouncementForm(forms.ModelForm):
     class Meta:

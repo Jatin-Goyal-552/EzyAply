@@ -63,7 +63,9 @@
 							</button>
 						</div>
 					</div>
-
+					{% for message in messages %}
+<div>{{message}}</div>
+{% endfor %}
 					<!-- <div class="text-center p-t-115">
 						<span class="txt1">
 							Did not recieved ?

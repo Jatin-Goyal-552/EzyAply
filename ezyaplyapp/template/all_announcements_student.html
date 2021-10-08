@@ -70,84 +70,14 @@
                         <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a></li> 
                 <li class="nav-item"><a href="{% url 'all_announcements_student' %}" class="nav-link">All Announcement</a></li>
                 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
-                <li class="nav-item dropdown position-static">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
-              <div class="dropdown-menu p-4" aria-labelledby="dropdown04">
-                  <div class="row">
-                      <div class="col-md-3">
-                          <a class="dropdown-item" href="#">Page 1</a>
-                        <a class="dropdown-item" href="#">Page 2</a>
-                        <a class="dropdown-item" href="#">Page 3</a>
-                        <a class="dropdown-item" href="#">Page 4</a>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-1.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-2.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-3.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </li>
+                
             </ul>
           </div>
         </div>
       </nav>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}"><button type="button" class="btn btn-warning">Home</button></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="{% url 'internship_applied' user_id  %}"><button type="button" class="btn btn-danger">Internship Applied</button></a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'all_announcements_student'  %}"><button type="button" class="btn btn-danger">All Announcemnts</button></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <a href="{% url 'logout' %}"><button type="button" class="btn btn-danger">Logout</button></a>
-
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav> -->
+    
     <h1>{{name}}</h1>
-    <div class="container mt-5 mb-5">
+    <div class="container mt-5 mb-5" style="font-family:Arial, sans-serif;">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
                 {% for announcement in announcements %}
@@ -158,7 +88,7 @@
                         <h5 style="font-weight: 500">{{ announcement.announcement_date }}</h5>
                         
                         <p class="text-justify text-truncate para mb-0"><span style="font-size: 19px;
-                            font-weight: 500;">Description :-</span><span style="font-size: 19px;"> {{ announcement.announcement_text }}</span></p>
+                            font-weight: 700;">Announcement :-</span><span style="font-size: 19px;"> {{ announcement.announcement_text }}</span></p>
                         
                     </div>
                     

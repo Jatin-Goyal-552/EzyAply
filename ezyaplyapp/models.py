@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 class Internships(models.Model):
     iid=models.AutoField(primary_key=True)
     company_name = models.CharField(max_length=200)
+    intern_role=models.CharField(max_length=200,blank=True)
     description=models.TextField(max_length=500,null=True)
     duration= models.CharField(max_length=200,blank=True,null=True)
     cpi = models.CharField(max_length=200,blank=True,null=True)

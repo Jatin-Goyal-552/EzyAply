@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="{% static 'navigation/css/style.css' %}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
     <title>Hello, world!</title>
   </head>
@@ -59,6 +60,101 @@
     .para {
         font-size: 16px
     }
+    body{
+        background: -webkit-linear-gradient(left, #ffffff, #00c6ff);
+    }
+    .emp-profile{
+        padding: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        border-radius: 0.5rem;
+        background: #fff;
+    }
+    .profile-img{
+        text-align: center;
+    }
+    .profile-img img{
+        width: 70%;
+        height: 100%;
+    }
+    .profile-img .file {
+        position: relative;
+        overflow: hidden;
+        margin-top: -20%;
+        width: 70%;
+        border: none;
+        border-radius: 0;
+        font-size: 15px;
+        background: #212529b8;
+    }
+    .profile-img .file input {
+        position: absolute;
+        opacity: 0;
+        right: 0;
+        top: 0;
+    }
+    .profile-head h5{
+        color: #333;
+    }
+    .profile-head h6{
+        color: #0062cc;
+    }
+    .profile-edit-btn{
+        border: none;
+        border-radius: 1.5rem;
+        width: 70%;
+        padding: 2%;
+        font-weight: 600;
+        color: #6c757d;
+        cursor: pointer;
+    }
+    .proile-rating{
+        font-size: 12px;
+        color: #818182;
+        margin-top: 5%;
+    }
+    .proile-rating span{
+        color: #495057;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .profile-head .nav-tabs{
+        margin-bottom:5%;
+    }
+    .profile-head .nav-tabs .nav-link{
+        font-weight:600;
+        border: none;
+    }
+    .profile-head .nav-tabs .nav-link.active{
+        border: none;
+        border-bottom:2px solid #0062cc;
+    }
+    .profile-work{
+        padding: 14%;
+        margin-top: -15%;
+    }
+    .profile-work p{
+        font-size: 12px;
+        color: #818182;
+        font-weight: 600;
+        margin-top: 10%;
+    }
+    .profile-work a{
+        text-decoration: none;
+        color: #495057;
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .profile-work ul{
+        list-style: none;
+    }
+    .profile-tab label{
+        font-weight: 600;
+    }
+    .profile-tab p{
+        font-weight: 600;
+        color: #0062cc;
+    }
   </style>
   <body>
     <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
@@ -72,40 +168,7 @@
                         <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a></li> 
                 <li class="nav-item"><a href="all_announcements_student" class="nav-link">All Announcement</a></li>
                 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
-                <li class="nav-item dropdown position-static">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Page</a>
-              <div class="dropdown-menu p-4" aria-labelledby="dropdown04">
-                  <div class="row">
-                      <div class="col-md-3">
-                          <a class="dropdown-item" href="#">Page 1</a>
-                        <a class="dropdown-item" href="#">Page 2</a>
-                        <a class="dropdown-item" href="#">Page 3</a>
-                        <a class="dropdown-item" href="#">Page 4</a>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-1.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-2.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                      <div class="col-md-3 d-none d-md-block">
-                          <a href="#" class="img" style="background-image: url(images/img-3.jpg);"></a>
-                          <div class="text">
-                              <h3><a href="#">Amazing Architecture</a></h3>
-                              <span>Architect</span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </li>
+                
             </ul>
           </div>
         </div>
@@ -149,7 +212,7 @@
         </div>
       </nav> -->
     <h1>{{name}}</h1>
-    <div class="container mt-5 mb-5">
+    <!-- <div class="container mt-5 mb-5">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
                 {{profile.user}}
@@ -161,65 +224,202 @@
                 <a href="{{ profile.imageURL }}" download="newfilename">{{ profile.resume }}</a>
                 <div>
                 <a href="{% url 'edit_profile' profile.p_id %}"><button class="btn btn-primary" type="button">Edit Profile</button></a></div>
-                <!-- <div class="row p-2 bg-white border rounded mt-2">
-                   
-                    <div class="col-md-6 mt-1">
-                        <h5>Quant trident shirts</h5>
-                        <div class="d-flex flex-row">
-                            <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>310</span>
-                        </div>
-                        <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                        <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
-                        <p class="text-justify text-truncate para mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br></p>
-                    </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                        <div class="d-flex flex-row align-items-center">
-                            <h4 class="mr-1">$14.99</h4><span class="strike-text">$20.99</span>
-                        </div>
-                        <h6 class="text-success">Free shipping</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button></div>
-                    </div>
-                </div>
-                <div class="row p-2 bg-white border rounded mt-2">
-                   
-                    <div class="col-md-6 mt-1">
-                        <h5>Quant ruybi shirts</h5>
-                        <div class="d-flex flex-row">
-                            <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>123</span>
-                        </div>
-                        <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                        <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
-                        <p class="text-justify text-truncate para mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br></p>
-                    </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                        <div class="d-flex flex-row align-items-center">
-                            <h4 class="mr-1">$13.99</h4><span class="strike-text">$20.99</span>
-                        </div>
-                        <h6 class="text-success">Free shipping</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button></div>
-                    </div>
-                </div>
-                <div class="row p-2 bg-white border rounded mt-2">
-                   
-                    <div class="col-md-6 mt-1">
-                        <h5>Quant tinor shirts</h5>
-                        <div class="d-flex flex-row">
-                            <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>110</span>
-                        </div>
-                        <div class="mt-1 mb-1 spec-1"><span>100% cotton</span><span class="dot"></span><span>Light weight</span><span class="dot"></span><span>Best finish<br></span></div>
-                        <div class="mt-1 mb-1 spec-1"><span>Unique design</span><span class="dot"></span><span>For men</span><span class="dot"></span><span>Casual<br></span></div>
-                        <p class="text-justify text-truncate para mb-0">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.<br><br></p>
-                    </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                        <div class="d-flex flex-row align-items-center">
-                            <h4 class="mr-1">$15.99</h4><span class="strike-text">$21.99</span>
-                        </div>
-                        <h6 class="text-success">Free shipping</h6>
-                        <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to wishlist</button></div>
-                    </div>
-                </div> -->
+                
             </div>
         </div>
+    </div> -->
+    <div class="container emp-profile">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-img">
+                        <img src="https://i.stack.imgur.com/34AD2.jpg" alt=""/>
+                        <!-- <div class="file btn btn-lg btn-primary">
+                            Change Photo
+                            <input type="file" name="file"/>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="profile-head">
+                        
+                                <h5>
+                                    {{profile.user}}
+                                </h5>
+                                <h6>
+                                    Web Developer and Designer
+                                </h6>
+                                <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
+                            </li>
+                        </ul> -->
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <a href="{% url 'edit_profile' profile.p_id %}"><button class="btn btn-primary" type="button"  style="padding: 11px 15px;
+                        font-size: 15px;border-color: aliceblue;
+                        border-radius: 18px;    background-color: #2b2d84;">Edit Profile</button></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="profile-work">
+                        <!-- <p>WORK LINK</p>
+                        <a href="">Website Link</a><br/>
+                        <a href="">Bootsnipp Profile</a><br/>
+                        <a href="">Bootply Profile</a>
+                        <p>SKILLS</p>
+                        <a href="">Web Designer</a><br/>
+                        <a href="">Web Developer</a><br/>
+                        <a href="">WordPress</a><br/>
+                        <a href="">WooCommerce</a><br/>
+                        <a href="">PHP, .Net</a><br/> -->
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="tab-content profile-tab" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <!-- <div class="row">
+                                        <div class="col-md-6">
+                                            <label></label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Kshiti123</p>
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Name</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{profile.user}}</p>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:-1px;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Phone Number</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{profile.phone_number}}</p>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:-1px;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Email</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{email}}</p>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:-1px;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Semester</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{profile.sem}}</p>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:-1px;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>CPI</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{profile.cpi}}</p>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:-1px;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>10th Precentage</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{profile.precentage_10}}</p>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:-1px;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>12th Precentage</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>{{profile.precentage_12}}</p>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:-1px;">
+                                    
+                                    
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Resume</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="col-md-6">
+                                    <a href="{{ profile.imageURL }}" download="newfilename">{{ profile.resume }}</a>
+                                    </div>
+                                    </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Experience</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Expert</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Hourly Rate</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>10$/hr</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Total Projects</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>230</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>English Level</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Expert</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Availability</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>6 months</p>
+                                        </div>
+                                    </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Your Bio</label><br/>
+                                    <p>Your detail description</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>           
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -230,5 +430,7 @@
   <script src="{% static 'navigation/js/popper.js' %}"></script>
   <script src="{% static 'navigation/js/bootstrap.min.js' %}"></script>
   <script src="{% static 'navigation/js/main.js' %}"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </body>
 </html>

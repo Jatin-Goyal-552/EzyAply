@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse
 from .models import *
 # Create your views here.
 from django.shortcuts import render, HttpResponse
@@ -16,6 +17,8 @@ import csv
 from django.core.mail import send_mail
 from django.conf import settings
 import numpy as np
+import urllib.request
+import os
 name=''
 response_id=''
 
@@ -122,6 +125,8 @@ def apply(request,id):
             'a_id':1,
             'user': request.user.id,
             'internship':intern[0].iid,
+            'user_name':profile[0].user_name,
+            'user_email':profile[0].user_email,
             'phone_number':profile[0].phone_number,
             'sem':profile[0].sem, 
             'cpi':profile[0].cpi, 
@@ -145,10 +150,10 @@ def apply(request,id):
         # if data == request.user.id: 
         if form.is_valid():
             form.save()
-            return redirect('/internship_applied')
+            return redirect('home')
         else:
             print("--------",form.errors)
-            return redirect('apply')
+            return redirect('home')
 			
     context = {'form':form,
     'user_id':request.user.id}
@@ -198,6 +203,7 @@ def view_responses(request,id):
     context={
         'responses':responses,
         'email':request.user.email,
+        'id':id
     }
     return render(request, 'view_responses.html',context)
 
@@ -209,6 +215,8 @@ def download(request):
     responses=Apply.objects.filter(internship=response_id)
     for i in range(len(responses)):
         dic['user'].append(responses[i].user.username)
+        dic['user_name'].append(responses[i].user_name)
+        dic['user_email'].append(responses[i].user_email)
         dic['phone_number'].append(responses[i].phone_number)
         dic['sem'].append(responses[i].sem)
         dic['cpi'].append(responses[i].cpi)
@@ -220,9 +228,9 @@ def download(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="data.csv"' # your filename
     writer = csv.writer(response)
-    writer.writerow(['S.No.','Name', 'Phone Number', 'Semester', 'CPI', '10th Precentage', '12th Precentage'])
+    writer.writerow(['S.No.','Name','User Name','User Email', 'Phone Number', 'Semester', 'CPI', '10th Precentage', '12th Precentage'])
     for ind in range(df.shape[0]):
-        writer.writerow([ind,df['user'][ind],df['phone_number'][ind],df['sem'][ind],df['cpi'][ind],df['precentage_10'][ind],df['precentage_12'][ind]])
+        writer.writerow([ind,df['user'][ind],df['user_name'][ind],df['user_email'][ind],df['phone_number'][ind],df['sem'][ind],df['cpi'][ind],df['precentage_10'][ind],df['precentage_12'][ind]])
     
     return response
 
@@ -350,3 +358,17 @@ def form_profile(request,id):
     context = {'form':form,
     'user_id':request.user.id}
     return render(request, 'form_profile.html',context)
+
+def download_pdf(request,id):
+    responses=Apply.objects.filter(internship=id)
+    os.mkdir("All_resume/"+str(id))
+    for response in responses:
+        url=response.imageURL
+        url="http://localhost:8000"+str(response.imageURL)
+        print("url",url)
+        print("response.resume",response.resume)
+        location=os.path.join("All_resume/",str(id),str(response.resume))
+        # location="All_resume/"+str(id)+str(response.resume)
+        print("location",location)
+        urllib.request.urlretrieve(url, location)
+    return redirect('admin_home')

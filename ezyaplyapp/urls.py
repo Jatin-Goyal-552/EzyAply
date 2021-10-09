@@ -22,5 +22,6 @@ urlpatterns=[
     path('profile',views.profile,name='profile'),
     path("edit_profile/<id>",views.edit_profile,name="edit_profile"),
     path("form_profile/<id>",views.form_profile,name="form_profile"),
-    path('check_otp',views.check_otp,name='check_otp')
+    path('check_otp',views.check_otp,name='check_otp'),
+    path('download_pdf/<id>',views.download_pdf,name='download_pdf')
 ]

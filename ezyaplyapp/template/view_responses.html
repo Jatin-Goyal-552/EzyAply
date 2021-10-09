@@ -152,6 +152,9 @@
   <a href="{% url 'download'  %}"><button type="button" class="btn btn-success" style="padding: 11px 15px;
     font-size: 15px;border-color: aliceblue;
     border-radius: 18px;    background-color: #0c0c0df0;margin:20px 24px;">Download Responses</button></a>
+    <a href="{% url 'download_pdf' id  %}"><button type="button" class="btn btn-success" style="padding: 11px 15px;
+      font-size: 15px;border-color: aliceblue;
+      border-radius: 18px;    background-color: #0c0c0df0;margin:20px 24px;">Download All Resume</button></a>
 
 </div>
   
@@ -188,6 +191,8 @@
                 <thead>
                   <tr class="table100-head">
                     <th>Student</th>
+                    <th>User Name</th>
+                    <th>User Email</th>
           <th>Phone Number</th>
           <th>Semester</th>
           <th>CPI</th>
@@ -200,6 +205,8 @@
                   {% for response in responses %}
                   <tr>
                     <td>{{ response.user }}</td>
+                    <td>{{ response.user_name}}</td>
+                    <td>{{ response.user_email}}</td>
                     <td>{{ response.phone_number }}</td>
                     <td>{{ response.sem }}</td>
                     <td>{{ response.cpi }}</td>

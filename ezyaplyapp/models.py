@@ -20,6 +20,8 @@ class Apply(models.Model):
     a_id=models.AutoField(primary_key=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     internship=models.ForeignKey(Internships,on_delete=models.CASCADE,null=True)
+    user_name=models.CharField(max_length=500,null=True)
+    user_email=models.EmailField(null=True, blank=True)
     phone_number=models.CharField(max_length=200,null=True)
     sem=models.CharField(max_length=200,null=True)
     cpi=models.CharField(max_length=200,null=True)
@@ -44,6 +46,8 @@ class Announcement(models.Model):
 class Profile(models.Model):
     p_id=models.AutoField(primary_key=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user_name=models.CharField(max_length=500,null=True)
+    user_email=models.EmailField(null=True, blank=True)
     phone_number=models.CharField(max_length=200,null=True)
     sem=models.CharField(max_length=200,null=True)
     cpi=models.CharField(max_length=200,null=True)

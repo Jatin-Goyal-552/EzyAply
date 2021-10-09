@@ -10,16 +10,9 @@ class CreateUserForm(UserCreationForm):
 		fields = ['username','email', 'password1', 'password2']
 
 class ApplyForm(forms.ModelForm):
-    # phone_number=forms.CharField(max_length=200,widget=forms.TextInput(attrs={"class":"form-control"}),label="Phone Number")
-    # sem=forms.CharField(max_length=200,widget=forms.TextInput(attrs={"class":"form-control"}),label="Semester")
-    # cpi=forms.CharField(max_length=200,widget=forms.TextInput(attrs={"class":"form-control"}),label="CPI")
-    # precentage_10=forms.CharField(max_length=200,widget=forms.TextInput(attrs={"class":"form-control"}),label="10th Precentage")
-    # precentage_12=forms.CharField(max_length=200,widget=forms.TextInput(attrs={"class":"form-control"}),label="12th Precentage") 
-    # resume=forms.FileField(widget=forms.FileInput(attrs={"class":"form-control"}),label="Resume")
     class Meta:
         model=Apply
-        fields=['user','internship','phone_number','sem','cpi','precentage_10','precentage_12','resume']
-        # excluding=['user','internship']
+        fields=['user','internship','user_name','user_email','phone_number','sem','cpi','precentage_10','precentage_12','resume']
 
 class AddInternshipForm(forms.ModelForm):
     class Meta:
@@ -34,5 +27,5 @@ class MadeAnnouncementForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model=Profile
-        fields=['user','phone_number','sem','cpi','precentage_10','precentage_12','resume']
+        fields=['user','user_name','user_email','phone_number','sem','cpi','precentage_10','precentage_12','resume']
 

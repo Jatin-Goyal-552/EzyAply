@@ -93,8 +93,21 @@
         font-family:Arial, sans-serif;font-size:33px;text-transform: uppercase;">{{name}}</span></h1>
     </div>
     <div class="container mt-5 mb-5">
+        <!-- <div class="col-6">
+
+        </div> -->
         <div class="d-flex justify-content-center row" style="font-family:Arial, sans-serif;">
-            <div class="col-md-10">
+            <div class="col-md-3">
+                <label for="cars">Choose a car:</label>
+
+                <select name="duration" id="cars">
+                  <option value="volvo">Volvo</option>
+                  <option value="saab">Saab</option>
+                  <option value="mercedes">Mercedes</option>
+                  <option value="audi">Audi</option>
+                </select>
+            </div>
+            <div class="col-md-9">
                 {% for internship in internships %}
 
                 <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">

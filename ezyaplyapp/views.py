@@ -95,6 +95,28 @@ def logout1(request):
 def admin_home(request):
     internship=Internships.objects.all()
                 # print(internship[0].iid)
+    if request.method == 'POST':
+        try:
+            preference=request.POST['vehicle1']
+            print('preference',preference)
+            duration=request.POST['duration']
+            print("duration",duration,type(duration))
+            if duration!='0':
+                internship=Internships.objects.filter(duration=duration)
+            semester=request.POST['semester']
+            print("semester",semester,type(semester))
+            if semester!='0':
+                internship=internship.filter(semester=semester)
+            stipend=request.POST['stipend']
+            print("stipend",stipend,type(stipend))
+            if stipend!='0':
+                internship=internship.filter(stipend=stipend)
+            cpi=request.POST['cpi']
+            print("cpi",cpi,type(cpi))
+            if cpi!='0':
+                internship=internship.filter(cpi=cpi)
+        except:
+            preference='0'
     context={
             'name':request.user,
             'internships':internship,
@@ -108,6 +130,28 @@ def admin_home(request):
 def home(request):
     internship=Internships.objects.all()
     print(internship[0].iid)
+    if request.method == 'POST':
+        try:
+            preference=request.POST['vehicle1']
+            print('preference',preference)
+            duration=request.POST['duration']
+            print("duration",duration,type(duration))
+            if duration!='0':
+                internship=Internships.objects.filter(duration=duration)
+            semester=request.POST['semester']
+            print("semester",semester,type(semester))
+            if semester!='0':
+                internship=internship.filter(semester=semester)
+            stipend=request.POST['stipend']
+            print("stipend",stipend,type(stipend))
+            if stipend!='0':
+                internship=internship.filter(stipend=stipend)
+            cpi=request.POST['cpi']
+            print("cpi",cpi,type(cpi))
+            if cpi!='0':
+                internship=internship.filter(cpi=cpi)
+        except:
+            preference='0'
     context={
         'name':request.user,
         'internships':internship,
@@ -178,7 +222,8 @@ def internship_applied(request,id):
     print("========",internship)
     context = {'applieds':applied,
     'user_id':request.user.id,
-    'internships':internship}
+    'internships':internship,
+    'combine':zip(applied,internship)}
 
     return render(request,'internship_applied.html',context)
 

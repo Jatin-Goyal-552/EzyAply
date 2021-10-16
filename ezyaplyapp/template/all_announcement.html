@@ -59,6 +59,10 @@
     .para {
         font-size: 16px
     }
+    h5 {
+        font-weight: bold;
+        font-size: 23px;
+    }
   </style>
   <body>
     <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
@@ -86,14 +90,16 @@
                 
                 <div class="row p-2 bg-white border rounded" style="margin-top: 20px;">
                     <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
-                    <div class="col-md-10 mt-1" >
-                        <div style="margin-top:20px;">
-                        <h5 style="font-size:24px;font-weight: 500">{{ announcement.announcement_date }}</h5>
-                        </div>
-                        <div>
-                        <p class="text-justify text-truncate para mb-0"><span style="font-size: 19px;
-                            font-weight: 700;">Announcement :-</span><span style="font-size: 19px;"> {{ announcement.announcement_text }}</span></p>
-                        </div>
+                    <div class="col-md-10 mt-1">
+                        <!-- <h4>Date</h4> -->
+                        <h5 style="font-weight: 500">{{ announcement.announcement_date }}</h5>
+                        <hr>
+                        <p style="margin-bottom: 10px;">
+                        <span style="font-size: 25px;
+                            font-weight: 700;">Announcement</span>
+                            </p>
+                        <p class="text-justify text-truncate para mb-0" ><span style="font-size: 19px;"> {{ announcement.announcement_text }}</span></p>
+                        
                     </div>
                     <div style="margin-top: 20px;margin-bottom:20px;margin-left:10px;">
                         <a href="{% url 'edit_announcement' announcement.an_id %}"><button class="btn btn-primary" type="button" style="padding: 11px 15px;

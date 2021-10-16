@@ -1,136 +1,166 @@
 <!doctype html>
 {% load static %}
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<link rel="stylesheet" href="{% static 'navigation/css/style.css' %}">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <title>Hello, world!</title>
-  </head>
-  <style>
-    body {
-        background: #eee
-    }
-    
-    .ratings i {
-        font-size: 16px;
-        color: red
-    }
-    
-    .strike-text {
-        color: red;
-        text-decoration: line-through
-    }
-    
-    .product-image {
-        width: 100%
-    }
-    
-    .dot {
-        height: 7px;
-        width: 7px;
-        margin-left: 6px;
-        margin-right: 6px;
-        margin-top: 3px;
-        background-color: blue;
-        border-radius: 50%;
-        display: inline-block
-    }
-    
-    .spec-1 {
-        color: #938787;
-        font-size: 15px
-    }
-    
-    .companyname {
-      font-weight: bold;
-      font-size: 28px;
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="{% static 'navigation/css/style.css' %}">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+<style>
+  body {
+    background: #eee
   }
-    
-    .para {
-        font-size: 16px
-    }
-  </style>
-  <body>
-    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">EzyAply</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="fa fa-bars"></span> Menu
-          </button>
-          <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a></li> 
-                <li class="nav-item"><a href="{% url 'all_announcements_student' %}" class="nav-link">All Announcement</a></li>
-                <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
-                
-            </ul>
-          </div>
-        </div>
-      </nav>
-    
-    <h1>{{name}}</h1>
-    <div class="container mt-5 mb-5" style="font-family:Arial, sans-serif;">
-        <div class="d-flex justify-content-center row" >
-            <div class="col-md-10">
-                {% for internship in internships %}
-                
-                <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">
-                    <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
-                    <div class="col-md-10">
-                      <h5 class="companyname" style="font-family:Arial, sans-serif;margin-top: 24px;
+
+  .ratings i {
+    font-size: 16px;
+    color: red
+  }
+
+  .strike-text {
+    color: red;
+    text-decoration: line-through
+  }
+
+  .product-image {
+    width: 100%
+  }
+
+  .dot {
+    height: 7px;
+    width: 7px;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 3px;
+    background-color: blue;
+    border-radius: 50%;
+    display: inline-block
+  }
+
+  .spec-1 {
+    color: #938787;
+    font-size: 15px
+  }
+
+  .companyname {
+    font-weight: bold;
+    font-size: 28px;
+  }
+
+  .para {
+    font-size: 16px
+  }
+</style>
+
+<body>
+  <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">EzyAply</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="fa fa-bars"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a>
+          </li>
+          <li class="nav-item"><a href="{% url 'all_announcements_student' %}" class="nav-link">All Announcement</a>
+          </li>
+          <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h1>{{name}}</h1>
+  <div class="container mt-5 mb-5" style="font-family:Arial, sans-serif;">
+    <div class="d-flex justify-content-center row">
+      <div class="col-md-10">
+        {% for applied,internship in combine %}
+
+        <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">
+          <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
+          <div class="col-md-10">
+            <h5 class="companyname" style="font-family:Arial, sans-serif;margin-top: 24px;
                   ">{{ internship.company_name }}</h5>
-                      <h5 style="font-family:Arial, sans-serif;margin-top: 14px;
+            <h5 style="font-family:Arial, sans-serif;margin-top: 14px;
                       margin-bottom: 16px;">{{ internship.intern_role }}</h5>
-                      <div class="d-flex flex-row">
-                          <!-- <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
-                          <!-- <span>Duration :- {{ internship.duration }}</span> -->
-                      </div>
-                      <div class="mt-1 mb-1 spec-1"><div><span style="margin-right: 12px;" class="dot"></span><span
-                              style="margin-right: 12px;">Duration :- {{ internship.duration }}</span><span
-                              style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Min.
-                              CPI :- {{ internship.cpi }}</span><span style="margin-right: 12px;"
-                              class="dot"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}
-                          </span><span style="margin-right: 12px;" class="dot"></span><span
-                              style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span></div>
-                              <div style="margin-top: 7px;"><span
-                              style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Date
-                              and Time :- {{ internship.date }}</span></div></div>
-                      <!-- <div class="mt-1 mb-1 spec-1"><span>Date and Time :- {{ internship.date }}</span></div> -->
-                      <div style="margin-top: 17px;">
-                      <p class="text-justify para mb-0"><span style="font-size: 19px;
+            <div class="d-flex flex-row">
+              <!-- <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
+              <!-- <span>Duration :- {{ internship.duration }}</span> -->
+            </div>
+            <div class="mt-1 mb-1 spec-1">
+              <div><img src="{% static 'icons\duration.png' %}" style="margin-right: 12px;height: 26px;
+                          width: 30px;"></span><span style="margin-right: 12px;">Duration :- {{ internship.duration }}
+                  Months</span><span><img src="{% static 'icons\cpi.png' %}" style="margin-right: 12px;height: 26px;
+                              width: 30px;"></span><span style="margin-right: 12px;">Min.
+                  CPI :- {{ internship.cpi }}</span><span><img src="{% static 'icons\sem.png' %}" style="margin-right: 12px;height: 26px;
+                                  width: 30px;"></span><span style="margin-right: 12px;">Semester :- {{internship.semester }}
+                </span><img src="{% static 'icons\stipend.png' %}" style="margin-right: 12px;height: 26px;
+                              width: 30px;"><span style="margin-right: 12px;">Stipend :-
+                                $ {{ internship.stipend}}</span></div>
+              <div style="margin-top: 7px;"><span><img src="{% static 'icons\calender.png' %}" style="margin-right: 12px;height: 26px;
+                                  width: 30px;"></span><span style="margin-right: 12px;">Date
+                  and Time :- {{ internship.date }}</span></div>
+            </div>
+            <!-- <div class="mt-1 mb-1 spec-1"><span>Date and Time :- {{ internship.date }}</span></div> -->
+            <div style="margin-top: 17px;">
+              <p class="text-justify para mb-0"><span style="font-size: 19px;
                           font-weight: 700;">Description :-</span><span style="font-size: 19px;
                           "> {{ internship.description }}</span></p>
-                      </div>
-                      <div style="margin-top: 10px;margin-bottom:20px;">
-                      <p class="text-justify para mb-0"><span style="font-size: 19px;
+            </div>
+            <div style="margin-top: 10px;">
+              <p class="text-justify para mb-0"><span style="font-size: 19px;
                           font-weight: 700;">Other Criteria :- </span><span style="font-size: 19px;
-                          ">{{ internship.other_qualifications }}</span></p></div>
-                  </div>
-                  
-                    <!-- <div class="align-items-center align-content-center col-md-3 border-left mt-1" style="margin-top: -0.15rem!important;">
+                          ">{{ internship.other_qualifications }}</span></p>
+            </div>
+          </div>
+          
+          <div class="mt-1 mb-1 spec-1">
+          <div><img src="{% static 'icons\duration.png' %}" style="margin-right: 12px;height: 26px;
+            width: 30px;"></span><span style="margin-right: 12px;">name :- {{ applied.user_name }}</span><span><img src="{% static 'icons\cpi.png' %}" style="margin-right: 12px;height: 26px;
+                width: 30px;"></span><span style="margin-right: 12px;">Email :- {{ applied.user_email }}</span><span><img src="{% static 'icons\sem.png' %}" style="margin-right: 12px;height: 26px;
+                    width: 30px;"></span><span style="margin-right: 12px;">Phone No. :- {{applied.phone_number }}
+  </span><img src="{% static 'icons\stipend.png' %}" style="margin-right: 12px;height: 26px;
+                width: 30px;"><span style="margin-right: 12px;">Stipend :-
+                  $ {{ internship.stipend}}</span></div>
+<div style="margin-top: 7px;"><span><img src="{% static 'icons\calender.png' %}" style="margin-right: 12px;height: 26px;
+                    width: 30px;"></span><span style="margin-right: 12px;">Date
+    and Time :- {{ internship.date }}</span></div></div>
+
+        <!-- <div class="align-items-center align-content-center col-md-3 border-left mt-1" style="margin-top: -0.15rem!important;">
                 
                         <div class="d-flex flex-column mt-4" ><a href="{% url 'apply'  internship.iid %}"><button class="btn btn-info" btn-roundedtype="button">Apply</button></a></div>
                     </div> -->
-                </div>
-                {% endfor %}
-            </div>
-        </div>
+      </div>
+      {% endfor %}
     </div>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      <script src="{% static 'navigation/js/jquery.min.js' %}"></script>
+  </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'navigation/js/jquery.min.js' %}"></script>
   <script src="{% static 'navigation/js/popper.js' %}"></script>
   <script src="{% static 'navigation/js/bootstrap.min.js' %}"></script>
   <script src="{% static 'navigation/js/main.js' %}"></script>
-    </body>
-  </html>
+</body>
+
+</html>

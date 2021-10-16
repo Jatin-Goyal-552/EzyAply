@@ -85,10 +85,14 @@
                 <div class="row p-2 bg-white border rounded" style="margin-top: 20px;">
                     <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
                     <div class="col-md-10 mt-1">
+                        <!-- <h4>Date</h4> -->
                         <h5 style="font-weight: 500">{{ announcement.announcement_date }}</h5>
-                        
-                        <p class="text-justify text-truncate para mb-0"><span style="font-size: 19px;
-                            font-weight: 700;">Announcement :-</span><span style="font-size: 19px;"> {{ announcement.announcement_text }}</span></p>
+                        <hr>
+                        <p style="margin-bottom: 10px;">
+                        <span style="font-size: 25px;
+                            font-weight: 700;">Announcement</span>
+                            </p>
+                        <p class="text-justify text-truncate para mb-0" ><span style="font-size: 19px;"> {{ announcement.announcement_text }}</span></p>
                         
                     </div>
                     

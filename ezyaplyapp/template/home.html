@@ -61,6 +61,9 @@
     .para {
         font-size: 16px
     }
+    label{
+        font-size: 20px;
+    }
 </style>
 
 <body>
@@ -92,22 +95,56 @@
         padding: 17px;
         font-family:Arial, sans-serif;font-size:33px;text-transform: uppercase;">{{name}}</span></h1>
     </div>
-    <div class="container mt-5 mb-5">
+    <!-- <div class="container mt-5 mb-5" style="font-family:Arial, sans-serif;"> -->
         <!-- <div class="col-6">
 
         </div> -->
-        <div class="d-flex justify-content-center row" style="font-family:Arial, sans-serif;">
-            <div class="col-md-3">
-                <label for="cars">Choose a car:</label>
+        <div style="margin:4% 3%;">
+        <div class=" justify-content-center row" style="font-family:Arial, sans-serif;">
+            <div class="col-md-3 mt-5">
+                <form class="contact100-form validate-form" method="POST" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <input type="checkbox" id="vehicle1" name="vehicle1" value="1" style="    width: 27px;
+                height: 19px;">
+                <label for="vehicle1">Search according to preference</label>
+                <hr>
+                <label for="cars">Duration Of Internship:</label>
+<br>
+                <input type="range" min="0" max="12" value="0" step="0.5" class="slider" id="myRange" name="duration" style="width:100%;">
+                    <p>Value: <span id="demo"></span></p>
+                <hr>
+                <label for="cars">Semester:</label>
 
-                <select name="duration" id="cars">
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
+                <select class="form-control" name="semester" id="cars">
+                    <option value="0">All Semester</option>
+                  <option value="5">5 Semester</option>
+                  <option value="6">6 Semester</option>
+                  <option value="7">7 Semester</option>
+                  <option value="8">8 Semester</option>
                 </select>
+                <hr>
+                <label for="cars">Stipend:</label>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="100000" value="0" step="1000" class="slider2" id="myRange2" name='stipend' style="width:100%;">
+                    <p>Value: <span id="demo2"></span></p>
+                </div>
+                  <label for="cars">Minimum CPI:</label>
+                <div class="slidecontainer">
+                    <input type="range" min="0.0" max="10.0" value="0" step="0.1" class="slider3" id="myRange3" name='cpi' style="width:100%;">
+                    <p>Value: <span id="demo3"></span></p>
+                  </div>
+                    <button class="contact100-form-btn" style="padding: 8px 18px;
+                    font-size: 18px;
+                    border-color: aliceblue;
+                    border-radius: 18px;    background-color: #2b2d84;">
+                      <span style="color:white;">
+                        Filter
+                        <!-- <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i> -->
+                      </span>
+                    </button>
+                </form>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8" style="margin-left: 3%;">
                 {% for internship in internships %}
 
                 <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">
@@ -121,15 +158,17 @@
                             <!-- <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
                             <!-- <span>Duration :- {{ internship.duration }}</span> -->
                         </div>
-                        <div class="mt-1 mb-1 spec-1"><div><span style="margin-right: 12px;" class="dot"></span><span
-                                style="margin-right: 12px;">Duration :- {{ internship.duration }}</span><span
-                                style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Min.
-                                CPI :- {{ internship.cpi }}</span><span style="margin-right: 12px;"
-                                class="dot"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}
-                            </span><span style="margin-right: 12px;" class="dot"></span><span
+                        <div class="mt-1 mb-1 spec-1"><div><img src="{% static 'icons\duration.png' %}" style="margin-right: 12px;height: 26px;
+                            width: 30px;"></span><span
+                                style="margin-right: 12px;">Duration :- {{ internship.duration }} Months</span><span><img src="{% static 'icons\cpi.png' %}" style="margin-right: 12px;height: 26px;
+                                width: 30px;"></span><span style="margin-right: 12px;">Min.
+                                CPI :- {{ internship.cpi }}</span><span><img src="{% static 'icons\sem.png' %}" style="margin-right: 12px;height: 26px;
+                                    width: 30px;"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}
+                            </span><img src="{% static 'icons\stipend.png' %}" style="margin-right: 12px;height: 26px;
+                                width: 30px;"><span
                                 style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span></div>
-                                <div style="margin-top: 7px;"><span
-                                style="margin-right: 12px;" class="dot"></span><span style="margin-right: 12px;">Date
+                                <div style="margin-top: 7px;"><span><img src="{% static 'icons\calender.png' %}" style="margin-right: 12px;height: 26px;
+                                    width: 30px;"></span><span style="margin-right: 12px;">Date
                                 and Time :- {{ internship.date }}</span></div></div>
                         <!-- <div class="mt-1 mb-1 spec-1"><span>Date and Time :- {{ internship.date }}</span></div> -->
                         <div style="margin-top: 17px;">
@@ -162,6 +201,34 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value+" Months"; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function() {
+        output.innerHTML = this.value+" Months";
+        }
+
+        var slider2 = document.getElementById("myRange2");
+        var output2 = document.getElementById("demo2");
+        output2.innerHTML = "Rs "+slider2.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+        slider2.oninput = function() {
+        output2.innerHTML = "Rs "+this.value;
+        }
+
+        var slider3 = document.getElementById("myRange3");
+        var output3 = document.getElementById("demo3");
+        output3.innerHTML = slider3.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+        slider3.oninput = function() {
+        output3.innerHTML = this.value;
+        }
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>

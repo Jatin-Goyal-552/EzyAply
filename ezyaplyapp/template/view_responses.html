@@ -33,7 +33,90 @@
     body {
         background: #eee
     }
-    
+    body {
+      background: #eee
+  }
+  body {
+    background: #2d2d2d;
+}
+
+
+.ftco-navbar-light1 {
+    background: #2d2d2d;
+    z-index: 3;
+    padding: 10px 10px;
+    font-size: 19px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+    -moz-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+    box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+    width: inherit;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.75rem;
+    line-height: inherit;
+    white-space: nowrap;
+    font-weight: 700;
+}
+.rounded {
+    border-radius: 1.75rem!important;
+}
+.border {
+    border: 6px solid #844e96!important;
+}
+.ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link {
+    font-size: 18px;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 400;
+    color: #e6e6e6;
+    position: relative;
+    opacity: 1 !important;
+}
+.ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link:hover {
+    color: #fec771;
+}
+.ftco-navbar-light1 .navbar-brand:hover, .ftco-navbar-light .navbar-brand:focus {
+    color: #fec771;
+}
+.container-contact100 {
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #2d2d2d;
+}
+.contact100-form-title {
+display: block;
+width: 100%;
+font-family: Montserrat-Black;
+font-size: 39px;
+color: #333333;
+line-height: 1.2;
+text-align: center;
+padding-bottom: 59px;
+}
     .ratings i {
         font-size: 16px;
         color: red
@@ -72,10 +155,7 @@
     .para {
         font-size: 16px
     }
-    body {
-      background: #eee
-  }
-  
+      
   .ratings i {
       font-size: 16px;
       color: red
@@ -128,9 +208,24 @@
     tr:nth-child(even) {
       background-color: #dddddd;
     }
+    .container-table1002 {
+      width: 100%;
+      min-height: 100vh;
+      background: #2d2d2d;
+      
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 33px 30px;
+  }
   </style>
   <body>
-    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light1" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="{% url 'admin_home' %}">EzyAply</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -147,46 +242,24 @@
           </div>
         </div>
       </nav>
- <div style="background: linear-gradient(
-  45deg, #f7f9ff, #a2adff);">
+      <div style="margin-bottom: -65px;margin-top:50px;">
   <a href="{% url 'download'  %}"><button type="button" class="btn btn-success" style="padding: 11px 15px;
     font-size: 15px;border-color: aliceblue;
-    border-radius: 18px;    background-color: #0c0c0df0;margin:20px 24px;">Download Responses</button></a>
+    border-radius: 18px;    background-color: #000f43f0;margin:20px 24px;">Download Responses</button></a>
     <a href="{% url 'download_pdf' id  %}"><button type="button" class="btn btn-success" style="padding: 11px 15px;
-      font-size: 15px;border-color: aliceblue;
-      border-radius: 18px;    background-color: #0c0c0df0;margin:20px 24px;">Download All Resume</button></a>
-
+      font-size: 15px;
+      border-color: aliceblue;
+      border-radius: 18px;
+      background-color: #000f43f0;
+      margin: 20px 24px;
+      margin-left: -19px;">Download All Resume</button></a>
 </div>
   
-    <h1>{{name}}</h1>
-    <!-- <table style="margin-left:10px;margin-right:10px;">
-        <tr>
-          <th>Student</th>
-          <th>Phone Number</th>
-          <th>Semester</th>
-          <th>CPI</th>
-          <th>10th Precentage</th>
-          <th>12th Precentage</th>
-          <th>Resume</th>
-        </tr>
-        {% for response in responses %}
-        <tr>
-          <td>{{ response.user }}</td>
-          <td>{{ response.phone_number }}</td>
-          <td>{{ response.sem }}</td>
-          <td>{{ response.cpi }}</td>
-          <td>{{ response.precentage_10 }}</td>
-          <td>{{ response.precentage_12 }}</td>
-          <td><a href="{{ response.imageURL }}" download="newfilename">{{ response.resume }}</a>
-
-          </td>
-        </tr>
-        {% endfor %}
-      </table> -->
-      <div class="limiter">
-        <div class="container-table100" style="background: linear-gradient(45deg, #f7f9ff, #a2adff);margin-top:-8px">
-          <div class="wrap-table100" style="min-height: 82vh;">
-            <div class="table100">
+    
+      <div class="limiter" style="background-color:#2d2d2d">
+        <div class="container-table1002" >
+          <div class="wrap-table1002" style="min-height: 82vh;">
+            <div class="table100" style="background-color:#2d2d2d">
               <table>
                 <thead>
                   <tr class="table100-head">
@@ -212,7 +285,7 @@
                     <td>{{ response.cpi }}</td>
                     <td>{{ response.precentage_10 }}</td>
                     <td>{{ response.precentage_12 }}</td>
-                    <td><a href="{{ response.imageURL }}" download="newfilename">{{ response.resume }}</a>
+                    <td><a href="{{ response.imageURL }}" download="newfilename" style="color:blue;">{{ response.resume }}</a>
           
                     </td>
                   </tr>

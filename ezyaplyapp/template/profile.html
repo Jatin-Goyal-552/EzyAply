@@ -21,7 +21,63 @@
     body {
         background: #eee
     }
+    body {
+        background: #2d2d2d;
+    }
     
+    
+    .ftco-navbar-light1 {
+        background: #2d2d2d;
+        z-index: 3;
+        padding: 10px 10px;
+        font-size: 19px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+        -moz-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+        box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+        width: inherit;
+    }
+    
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+    
+    .navbar-brand {
+        display: inline-block;
+        padding-top: .3125rem;
+        padding-bottom: .3125rem;
+        margin-right: 1rem;
+        font-size: 1.75rem;
+        line-height: inherit;
+        white-space: nowrap;
+        font-weight: 700;
+    }
+    .rounded {
+        border-radius: 1.75rem!important;
+    }
+    .border {
+        border: 6px solid #844e96!important;
+    }
+    .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link {
+        font-size: 18px;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: 400;
+        color: #e6e6e6;
+        position: relative;
+        opacity: 1 !important;
+    }
+    .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link:hover {
+        color: #fec771;
+    }
+    .ftco-navbar-light1 .navbar-brand:hover, .ftco-navbar-light .navbar-brand:focus {
+        color: #fec771;
+    }
     .ratings i {
         font-size: 16px;
         color: red
@@ -60,9 +116,7 @@
     .para {
         font-size: 16px
     }
-    body{
-        background: -webkit-linear-gradient(left, #ffffff, #00c6ff);
-    }
+    
     .emp-profile{
         padding: 3%;
         margin-top: 3%;
@@ -155,9 +209,25 @@
         font-weight: 600;
         color: #0062cc;
     }
+    .profile-head h5 {
+        color: #333;
+        margin-top: 30px;
+        font-size: 38px;
+    }
+    .profile-tab p {
+        font-weight: 600;
+        color: #586c5f;
+    }
+    .active1{
+        color: #fec771;
+      }
+      .profile-img img {
+        width: 59%;
+        height: 72%;
+    }
   </style>
   <body>
-    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light1" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">EzyAply</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -167,52 +237,24 @@
             <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a></li> 
                 <li class="nav-item"><a href="all_announcements_student" class="nav-link">All Announcement</a></li>
+                <li class="nav-item"><a href="profile" class="nav-link active1">Profile</a></li>
                 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
                 
             </ul>
           </div>
         </div>
       </nav>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home' %}"><button type="button" class="btn btn-warning">Home</button></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a href="{% url 'internship_applied' user_id  %}"><button type="button" class="btn btn-danger">Internship Applied</button></a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{% url 'all_announcements_student'  %}"><button type="button" class="btn btn-danger">All Announcemnts</button></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <a href="{% url 'logout' %}"><button type="button" class="btn btn-danger">Logout</button></a>
-
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav> -->
-    <h1>{{name}}</h1>
-    <!-- <div class="container mt-5 mb-5">
+    
+      <div id="usernamediv" style="text-align:center;margin-top: 62px;">
+        <h1 id="username"><span style="
+            font-family: Arial, sans-serif;
+            font-size: 40px;
+            text-transform: uppercase;
+            color: wheat;
+            letter-spacing: 17px;
+            word-spacing: 10px;
+            margin-bottom: 95px;">Profile</span></h1>
+    </div>    <!-- <div class="container mt-5 mb-5">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
                 {{profile.user}}
@@ -246,9 +288,9 @@
                                 <h5>
                                     {{profile.user}}
                                 </h5>
-                                <h6>
+                                <!-- <h6>
                                     Web Developer and Designer
-                                </h6>
+                                </h6> -->
                                 <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
@@ -261,9 +303,12 @@
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <a href="{% url 'edit_profile' profile.p_id %}"><button class="btn btn-primary" type="button"  style="padding: 11px 15px;
-                        font-size: 15px;border-color: aliceblue;
-                        border-radius: 18px;    background-color: #2b2d84;">Edit Profile</button></a>
+                    <a href="{% url 'edit_profile' profile.p_id %}"><button class="btn btn-primary" type="button"  style="    padding: 11px 15px;
+                        font-size: 15px;
+                        border-color: aliceblue;
+                        border-radius: 18px;
+                        background-color: #2b2d84;
+                        margin-top: 31px;">Edit Profile</button></a>
                 </div>
             </div>
             <div class="row">
@@ -382,7 +427,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="col-md-6">
-                                    <a href="{{ profile.imageURL }}" download="newfilename">{{ profile.resume }}</a>
+                                    <a href="{{ profile.imageURL }}" download="newfilename" style="color: #131310;
+                                    margin-left: -29%;">{{ profile.resume }}</a>
                                     </div>
                                     </div>
                         </div>

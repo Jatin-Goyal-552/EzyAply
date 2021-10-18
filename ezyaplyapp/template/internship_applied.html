@@ -21,7 +21,63 @@
   body {
     background: #eee
   }
+  body {
+    background: #2d2d2d;
+}
 
+
+.ftco-navbar-light1 {
+    background: #2d2d2d;
+    z-index: 3;
+    padding: 10px 10px;
+    font-size: 19px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+    -moz-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+    box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+    width: inherit;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.75rem;
+    line-height: inherit;
+    white-space: nowrap;
+    font-weight: 700;
+}
+.rounded {
+    border-radius: 1.75rem!important;
+}
+.border {
+    border: 6px solid #844e96!important;
+}
+.ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link {
+    font-size: 18px;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: 400;
+    color: #e6e6e6;
+    position: relative;
+    opacity: 1 !important;
+}
+.ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link:hover {
+    color: #fec771;
+}
+.ftco-navbar-light1 .navbar-brand:hover, .ftco-navbar-light .navbar-brand:focus {
+    color: #fec771;
+}
   .ratings i {
     font-size: 16px;
     color: red
@@ -60,10 +116,13 @@
   .para {
     font-size: 16px
   }
+  .active{
+    color: #fec771;
+  }
 </style>
 
 <body>
-  <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+  <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light1" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="{% url 'home' %}">EzyAply</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -72,10 +131,11 @@
       </button>
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a>
+          <li class="nav-item active"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a>
           </li>
-          <li class="nav-item"><a href="{% url 'all_announcements_student' %}" class="nav-link">All Announcement</a>
+          <li class="nav-item"><a href="{% url 'all_announcements_student' %}" class="nav-link ">All Announcement</a>
           </li>
+          <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link">Profile</a></li>
           <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
 
         </ul>
@@ -83,13 +143,22 @@
     </div>
   </nav>
 
-  <h1>{{name}}</h1>
-  <div class="container mt-5 mb-5" style="font-family:Arial, sans-serif;">
+  <div id="usernamediv" style="text-align:center;margin-top: 62px;">
+    <h1 id="username"><span style="
+        font-family: Arial, sans-serif;
+        font-size: 40px;
+        text-transform: uppercase;
+        color: wheat;
+        letter-spacing: 17px;
+        word-spacing: 10px;
+        margin-bottom: 95px;">Internhip Applied</span></h1>
+</div>
+  <div class=" mt-5 mb-5" style="font-family:Arial, sans-serif;margin:6%;">
     <div class="d-flex justify-content-center row">
-      <div class="col-md-10">
+      <div class="col-md-12">
         {% for applied,internship in combine %}
-
-        <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">
+        <div class=" p-2 bg-white border rounded" style="margin: 2% 5%;">
+        <div class=" p-2 bg-white border1 rounded " style="margin:0% 10%;">
           <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
           <div class="col-md-10">
             <h5 class="companyname" style="font-family:Arial, sans-serif;margin-top: 24px;
@@ -126,24 +195,27 @@
                           ">{{ internship.other_qualifications }}</span></p>
             </div>
           </div>
+          </div>
           
-          <div class="mt-1 mb-1 spec-1">
-          <div><img src="{% static 'icons\duration.png' %}" style="margin-right: 12px;height: 26px;
-            width: 30px;"></span><span style="margin-right: 12px;">name :- {{ applied.user_name }}</span><span><img src="{% static 'icons\cpi.png' %}" style="margin-right: 12px;height: 26px;
-                width: 30px;"></span><span style="margin-right: 12px;">Email :- {{ applied.user_email }}</span><span><img src="{% static 'icons\sem.png' %}" style="margin-right: 12px;height: 26px;
-                    width: 30px;"></span><span style="margin-right: 12px;">Phone No. :- {{applied.phone_number }}
-  </span><img src="{% static 'icons\stipend.png' %}" style="margin-right: 12px;height: 26px;
-                width: 30px;"><span style="margin-right: 12px;">Stipend :-
-                  $ {{ internship.stipend}}</span></div>
-<div style="margin-top: 7px;"><span><img src="{% static 'icons\calender.png' %}" style="margin-right: 12px;height: 26px;
-                    width: 30px;"></span><span style="margin-right: 12px;">Date
-    and Time :- {{ internship.date }}</span></div></div>
+      
+      <div class=" p-2 bg-white border1 rounded" style="margin:0% 3% 0% 11%;">
+        
+        
+        <div class="mt-1 mb-1 spec-1">
+        <div><img src="{% static 'icons\dot.png' %}" style="margin-right: 12px;height: 19px;width: 21px;margin-bottom: 5px;"></span><span style="margin-right: 12px;">Name :- {{ applied.user_name }}</span><span><img src="{% static 'icons\dot.png' %}" style="margin-right: 12px;height: 19px;width: 21px;margin-bottom: 5px;"></span><span style="margin-right: 12px;">Email :- {{ applied.user_email }}</span><span><img src="{% static 'icons\dot.png' %}" style="margin-right: 12px;height: 19px;width: 21px;margin-bottom: 5px;"></span><span style="margin-right: 12px;">Phone No. :- {{applied.phone_number }}
+</span><img src="{% static 'icons\dot.png' %}" style="margin-right: 12px;height: 19px;width: 21px;margin-bottom: 5px;"><span style="margin-right: 12px;">Semester :-
+                {{applied.sem }}</span></div>
+<div style="margin-top: 7px;"><span><img src="{% static 'icons\dot.png' %}" style="margin-right: 12px;height: 19px;width: 21px;margin-bottom: 5px;"></span><span style="margin-right: 12px;">CPI :-
+                     {{ internship.cpi }}</span><span><img src="{% static 'icons\dot.png' %}" style="margin-right: 12px;height: 19px;width: 21px;margin-bottom: 5px;"></span><span style="margin-right: 12px;">10th Precentage :- {{ applied.precentage_10 }}</span><span><img src="{% static 'icons\dot.png' %}" style="margin-right: 12px;height: 19px;width: 21px;margin-bottom: 5px;"></span><span style="margin-right: 12px;">12th Precentage :- {{applied.precentage_10 }}
+    </span><img src="{% static 'icons\dot.png' %}" style="margin-right: 12px;height: 19px;width: 21px;margin-bottom: 5px;"><span style="margin-right: 12px;">Resume :-
+                    <a href="{{ applied.imageURL }}" download="newfilename" style="color:#2f00ff;">{{ applied.resume }}</a></span></div></div>
 
-        <!-- <div class="align-items-center align-content-center col-md-3 border-left mt-1" style="margin-top: -0.15rem!important;">
-                
-                        <div class="d-flex flex-column mt-4" ><a href="{% url 'apply'  internship.iid %}"><button class="btn btn-info" btn-roundedtype="button">Apply</button></a></div>
-                    </div> -->
-      </div>
+      <!-- <div class="align-items-center align-content-center col-md-3 border-left mt-1" style="margin-top: -0.15rem!important;">
+              
+                      <div class="d-flex flex-column mt-4" ><a href="{% url 'apply'  internship.iid %}"><button class="btn btn-info" btn-roundedtype="button">Apply</button></a></div>
+                  </div> -->
+    </div>
+    </div>
       {% endfor %}
     </div>
   </div>

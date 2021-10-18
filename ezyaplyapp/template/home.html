@@ -20,9 +20,68 @@
 </head>
 <style>
     body {
-        background: #eee
+        background: #2d2d2d;
     }
 
+    
+    .ftco-navbar-light1 {
+        background: #2d2d2d;
+        z-index: 3;
+        padding: 10px 10px;
+        font-size: 19px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+        -moz-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+        box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+        width: inherit;
+    }
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+
+    .navbar-brand {
+        display: inline-block;
+        padding-top: .3125rem;
+        padding-bottom: .3125rem;
+        margin-right: 1rem;
+        font-size: 1.75rem;
+        line-height: inherit;
+        white-space: nowrap;
+        font-weight: 700;
+    }
+    .rounded {
+        border-radius: 1.75rem!important;
+    }
+    .border {
+        border: 6px solid #844e96!important;
+    }
+    .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link {
+        font-size: 18px;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: 400;
+        color: #e6e6e6;
+        position: relative;
+        opacity: 1 !important;
+    }
+    .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link:hover {
+        color: #fec771;
+    }
+    .ftco-navbar-light1 .navbar-brand:hover, .ftco-navbar-light .navbar-brand:focus {
+        color: #fec771;
+    }
+    /*
+.mt-5, .my-5 {
+    margin-top: 3rem!important;
+    background-color: white;
+    padding: 19px;
+}*/
     .ratings i {
         font-size: 16px;
         color: red
@@ -61,15 +120,29 @@
     .para {
         font-size: 16px
     }
-    label{
+
+    label {
         font-size: 20px;
+    }
+    .active{
+        color: #fec771;
+      }
+      .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -36px;
+        margin-left: -56px;
     }
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light1" id="ftco-navbar"
+        style="background-color:#2d2d2d;">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">EzyAply</a>
+            <a class="navbar-brand active" href="{% url 'home' %}">EzyAply</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                 aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-bars"></span> Menu
@@ -84,114 +157,132 @@
                     <li class="nav-item"><a href="profile" class="nav-link">Profile</a></li>
 
                     <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
-                    
+
                 </ul>
             </div>
         </div>
     </nav>
-    
+
     <div id="usernamediv" style="text-align:center;margin-top: 62px;">
-        <h1 id="username"><span style="background-color: #fdfffaab;
-        padding: 17px;
-        font-family:Arial, sans-serif;font-size:33px;text-transform: uppercase;">{{name}}</span></h1>
+        <h1 id="username"><span style="
+            font-family: Arial, sans-serif;
+            font-size: 40px;
+            text-transform: uppercase;
+            color: wheat;
+            letter-spacing: 17px;
+            word-spacing: 10px;
+            margin-bottom: 95px;">Welcome {{name}}</span></h1>
     </div>
     <!-- <div class="container mt-5 mb-5" style="font-family:Arial, sans-serif;"> -->
-        <!-- <div class="col-6">
+    <!-- <div class="col-6">
 
         </div> -->
-        <div style="margin:4% 3%;">
+    <div style="margin:4% 3%;">
         <div class=" justify-content-center row" style="font-family:Arial, sans-serif;">
-            <div class="col-md-3 mt-5">
-                <form class="contact100-form validate-form" method="POST" action="" enctype="multipart/form-data">
+            <div class="col-md-4 mt-5">
+                <form class="contact100-form validate-form" method="POST" action="" enctype="multipart/form-data" style="background-color: white;
+                padding: 31px;
+                border: 5px solid #a790d4;
+                border-radius: 56px;">
                     {% csrf_token %}
-                <input type="checkbox" id="vehicle1" name="vehicle1" value="1" style="    width: 27px;
+                    <input type="checkbox" id="vehicle1" name="vehicle1" value="1" style="    width: 27px;
                 height: 19px;">
-                <label for="vehicle1">Search according to preference</label>
-                <hr>
-                <label for="cars">Duration Of Internship:</label>
-<br>
-                <input type="range" min="0" max="12" value="0" step="0.5" class="slider" id="myRange" name="duration" style="width:100%;">
+                    <label for="vehicle1">Search according to preference</label>
+                    <hr>
+                    <label for="cars">Duration Of Internship:</label>
+                    <br>
+                    <input type="range" min="0" max="12" value="0" step="0.5" class="slider" id="myRange"
+                        name="duration" style="width:100%;">
                     <p>Value: <span id="demo"></span></p>
-                <hr>
-                <label for="cars">Semester:</label>
+                    <hr>
+                    <label for="cars">Semester:</label>
 
-                <select class="form-control" name="semester" id="cars">
-                    <option value="0">All Semester</option>
-                  <option value="5">5 Semester</option>
-                  <option value="6">6 Semester</option>
-                  <option value="7">7 Semester</option>
-                  <option value="8">8 Semester</option>
-                </select>
-                <hr>
-                <label for="cars">Stipend:</label>
-                <div class="slidecontainer">
-                    <input type="range" min="0" max="100000" value="0" step="1000" class="slider2" id="myRange2" name='stipend' style="width:100%;">
-                    <p>Value: <span id="demo2"></span></p>
-                </div>
-                  <label for="cars">Minimum CPI:</label>
-                <div class="slidecontainer">
-                    <input type="range" min="0.0" max="10.0" value="0" step="0.1" class="slider3" id="myRange3" name='cpi' style="width:100%;">
-                    <p>Value: <span id="demo3"></span></p>
-                  </div>
+                    <select class="form-control" name="semester" id="cars">
+                        <option value="0">All Semester</option>
+                        <option value="5">5 Semester</option>
+                        <option value="6">6 Semester</option>
+                        <option value="7">7 Semester</option>
+                        <option value="8">8 Semester</option>
+                    </select>
+                    <hr>
+                    <label for="cars">Stipend:</label>
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="100000" value="0" step="1000" class="slider2" id="myRange2"
+                            name='stipend' style="width:100%;">
+                        <p>Value: <span id="demo2"></span></p>
+                    </div>
+                    <label for="cars">Minimum CPI:</label>
+                    <div class="slidecontainer">
+                        <input type="range" min="0.0" max="10.0" value="0" step="0.1" class="slider3" id="myRange3"
+                            name='cpi' style="width:100%;">
+                        <p>Value: <span id="demo3"></span></p>
+                    </div>
                     <button class="contact100-form-btn" style="padding: 8px 18px;
                     font-size: 18px;
                     border-color: aliceblue;
                     border-radius: 18px;    background-color: #2b2d84;">
-                      <span style="color:white;">
-                        Filter
-                        <!-- <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i> -->
-                      </span>
+                        <span style="color:white;">
+                            Filter
+                            <!-- <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i> -->
+                        </span>
                     </button>
                 </form>
             </div>
-            <div class="col-md-8" style="margin-left: 3%;">
+            <div class="col-md-7 mt-7" style="margin-left: 3%;margin-top: 22px;
+        ">
                 {% for internship in internships %}
-
-                <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">
-                    <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
-                    <div class="col-md-10">
-                        <h5 class="companyname" style="font-family:Arial, sans-serif;margin-top: 24px;
+                <div class="container">
+                    <div class="row p-2 bg-white border rounded" style="margin-top: 20px;">
+                        <!-- <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/QpjAiHq.jpg"></div> -->
+                        <div class="col-md-12">
+                            <h5 class="companyname" style="font-family:Arial, sans-serif;margin-top: 24px;
                     ">{{ internship.company_name }}</h5>
-                        <h5 style="font-family:Arial, sans-serif;margin-top: 14px;
+                            <h5 style="font-family:Arial, sans-serif;margin-top: 14px;
                         margin-bottom: 16px;">{{ internship.intern_role }}</h5>
-                        <div class="d-flex flex-row">
-                            <!-- <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
-                            <!-- <span>Duration :- {{ internship.duration }}</span> -->
-                        </div>
-                        <div class="mt-1 mb-1 spec-1"><div><img src="{% static 'icons\duration.png' %}" style="margin-right: 12px;height: 26px;
-                            width: 30px;"></span><span
-                                style="margin-right: 12px;">Duration :- {{ internship.duration }} Months</span><span><img src="{% static 'icons\cpi.png' %}" style="margin-right: 12px;height: 26px;
+                            <div class="d-flex flex-row">
+                                <!-- <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div> -->
+                                <!-- <span>Duration :- {{ internship.duration }}</span> -->
+                            </div>
+                            <div class="mt-1 mb-1 spec-1">
+                                <div><img src="{% static 'icons\duration.png' %}" style="margin-right: 12px;height: 26px;
+                            width: 30px;"></span><span style="margin-right: 12px;">Duration :- {{ internship.duration}} Months</span><span><img src="{% static 'icons\cpi.png' %}" style="margin-right: 12px;height: 26px;
                                 width: 30px;"></span><span style="margin-right: 12px;">Min.
-                                CPI :- {{ internship.cpi }}</span><span><img src="{% static 'icons\sem.png' %}" style="margin-right: 12px;height: 26px;
+                                        CPI :- {{ internship.cpi }}</span><span><img src="{% static 'icons\sem.png' %}"
+                                            style="margin-right: 12px;height: 26px;
                                     width: 30px;"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}
-                            </span><img src="{% static 'icons\stipend.png' %}" style="margin-right: 12px;height: 26px;
-                                width: 30px;"><span
-                                style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span></div>
-                                <div style="margin-top: 7px;"><span><img src="{% static 'icons\calender.png' %}" style="margin-right: 12px;height: 26px;
+                                    </span></div>
+                                <div style="margin-top: 7px;"><img src="{% static 'icons\stipend.png' %}" style="margin-right: 12px;height: 26px;
+                                width: 30px;"><span style="margin-right: 12px;">Stipend :-$ {{ internship.stipend}}</span>
+                                    <span><img src="{% static 'icons\calender.png' %}" style="margin-right: 12px;height: 26px;
                                     width: 30px;"></span><span style="margin-right: 12px;">Date
-                                and Time :- {{ internship.date }}</span></div></div>
-                        <!-- <div class="mt-1 mb-1 spec-1"><span>Date and Time :- {{ internship.date }}</span></div> -->
-                        <div style="margin-top: 17px;">
-                        <p class="text-justify para mb-0"><span style="font-size: 19px;
+                                        and Time :- {{ internship.date }}</span>
+                                </div>
+                            </div>
+                            <!-- <div class="mt-1 mb-1 spec-1"><span>Date and Time :- {{ internship.date }}</span></div> -->
+                            <div style="margin-top: 17px;">
+                                <p class="text-justify para mb-0"><span style="font-size: 19px;
                             font-weight: 700;">Description :-</span><span style="font-size: 19px;
                             "> {{ internship.description }}</span></p>
-                        </div>
-                        <div style="margin-top: 10px;">
-                        <p class="text-justify para mb-0"><span style="font-size: 19px;
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <p class="text-justify para mb-0"><span style="font-size: 19px;
                             font-weight: 700;">Other Criteria :- </span><span style="font-size: 19px;
-                            ">{{ internship.other_qualifications }}</span></p></div>
-                    </div>
-                    <div class="align-items-center align-content-center col-md-3 border-left mt-1"
-                        style="margin-top: -0.15rem!important;">
-                        <!-- <div class="d-flex flex-row align-items-center">
+                            ">{{ internship.other_qualifications }}</span></p>
+                            </div>
+                        </div>
+                        <div class="align-items-center align-content-center col-md-3 border-left mt-1"
+                            style="margin-top: -0.15rem!important;">
+                            <!-- <div class="d-flex flex-row align-items-center">
                             <h4 class="mr-1">$13.99</h4><span class="strike-text">$20.99</span>
                         </div>
                         <h6 class="text-success">Free shipping</h6> -->
-                        <div class="d-flex flex-column mt-4" style="    margin-bottom: 24px;"><a href="{% url 'apply'  internship.iid %}"><button style="padding: 8px 18px;
+                            <div class="d-flex flex-column mt-4" style="    margin-bottom: 24px;"><a
+                                    href="{% url 'apply'  internship.iid %}"><button style="padding: 8px 18px;
                             font-size: 18px;
                             border-color: aliceblue;
-                            border-radius: 18px;    background-color: #2b2d84;"
-                                    class="btn btn-info" btn-roundedtype="button">Apply</button></a></div>
+                            border-radius: 18px;    background-color: #2b2d84;" class="btn btn-info"
+                                        btn-roundedtype="button">Apply</button></a></div>
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
@@ -199,34 +290,37 @@
             </div>
         </div>
     </div>
+    <style>
+
+    </style>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script>
         var slider = document.getElementById("myRange");
         var output = document.getElementById("demo");
-        output.innerHTML = slider.value+" Months"; // Display the default slider value
+        output.innerHTML = slider.value + " Months"; // Display the default slider value
 
-// Update the current slider value (each time you drag the slider handle)
-        slider.oninput = function() {
-        output.innerHTML = this.value+" Months";
+        // Update the current slider value (each time you drag the slider handle)
+        slider.oninput = function () {
+            output.innerHTML = this.value + " Months";
         }
 
         var slider2 = document.getElementById("myRange2");
         var output2 = document.getElementById("demo2");
-        output2.innerHTML = "Rs "+slider2.value; // Display the default slider value
+        output2.innerHTML = "Rs " + slider2.value; // Display the default slider value
 
-// Update the current slider value (each time you drag the slider handle)
-        slider2.oninput = function() {
-        output2.innerHTML = "Rs "+this.value;
+        // Update the current slider value (each time you drag the slider handle)
+        slider2.oninput = function () {
+            output2.innerHTML = "Rs " + this.value;
         }
 
         var slider3 = document.getElementById("myRange3");
         var output3 = document.getElementById("demo3");
         output3.innerHTML = slider3.value; // Display the default slider value
 
-// Update the current slider value (each time you drag the slider handle)
-        slider3.oninput = function() {
-        output3.innerHTML = this.value;
+        // Update the current slider value (each time you drag the slider handle)
+        slider3.oninput = function () {
+            output3.innerHTML = this.value;
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -242,6 +336,9 @@
     <script src="{% static 'navigation/js/popper.js' %}"></script>
     <script src="{% static 'navigation/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'navigation/js/main.js' %}"></script>
+    <style>
+
+    </style>
 </body>
 
 </html>

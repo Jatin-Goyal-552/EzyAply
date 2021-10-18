@@ -22,7 +22,63 @@
     body {
         background: #eee
     }
+    body {
+        background: #2d2d2d;
+    }
 
+    
+    .ftco-navbar-light1 {
+        background: #2d2d2d;
+        z-index: 3;
+        padding: 10px 10px;
+        font-size: 19px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+        -moz-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+        box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+        width: inherit;
+    }
+
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+
+    .navbar-brand {
+        display: inline-block;
+        padding-top: .3125rem;
+        padding-bottom: .3125rem;
+        margin-right: 1rem;
+        font-size: 1.75rem;
+        line-height: inherit;
+        white-space: nowrap;
+        font-weight: 700;
+    }
+    .rounded {
+        border-radius: 1.75rem!important;
+    }
+    .border {
+        border: 6px solid #844e96!important;
+    }
+    .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link {
+        font-size: 18px;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: 400;
+        color: #e6e6e6;
+        position: relative;
+        opacity: 1 !important;
+    }
+    .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link:hover {
+        color: #fec771;
+    }
+    .ftco-navbar-light1 .navbar-brand:hover, .ftco-navbar-light .navbar-brand:focus {
+        color: #fec771;
+    }
     .ratings i {
         font-size: 16px;
         color: red
@@ -61,10 +117,19 @@
     .para {
         font-size: 16px
     }
+    .row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -36px;
+        margin-left: -56px;
+    }
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light1" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="{% url 'admin_home' %}">EzyAply</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -83,17 +148,24 @@
             </div>
         </div>
     </nav>
-
     <div id="usernamediv" style="text-align:center;margin-top: 62px;">
-        <h1 id="username"><span style="background-color: #fdfffaab;
-            padding: 17px;
-            font-family:Arial, sans-serif;font-size:33px;text-transform: uppercase;">{{name}}</span></h1>
+        <h1 id="username"><span style="
+            font-family: Arial, sans-serif;
+            font-size: 40px;
+            text-transform: uppercase;
+            color: wheat;
+            letter-spacing: 17px;
+            word-spacing: 10px;
+            margin-bottom: 95px;">Welcome {{name}}</span></h1>
     </div>
   
     <div style="margin:4% 3%;">
         <div class=" justify-content-center row" style="font-family:Arial, sans-serif;">
-            <div class="col-md-3 mt-5">
-                <form class="contact100-form validate-form" method="POST" action="" enctype="multipart/form-data">
+            <div class="col-md-4 mt-5">
+                <form class="contact100-form validate-form" method="POST" action="" enctype="multipart/form-data" style="background-color: white;
+                padding: 31px;
+                border: 5px solid #a790d4;
+                border-radius: 56px;">
                     {% csrf_token %}
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="1" style="    width: 27px;
                 height: 19px;">
@@ -138,7 +210,7 @@
                     </button>
                 </form>
             </div>
-            <div class="col-md-8" style="margin-left: 3%;">
+            <div class="col-md-7" style="margin-left: 3%;margin-top: 22px;">
                 {% for internship in internships %}
 
                 <div class="row p-2 bg-white border rounded" style="margin-top: 21px;">
@@ -158,10 +230,10 @@
                                 width: 30px;"></span><span style="margin-right: 12px;">Min.
                                 CPI :- {{ internship.cpi }}</span><span><img src="{% static 'icons\sem.png' %}" style="margin-right: 12px;height: 26px;
                                     width: 30px;"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}
-                            </span><img src="{% static 'icons\stipend.png' %}" style="margin-right: 12px;height: 26px;
+                            </span></div>
+                            <div style="margin-top: 7px;"><img src="{% static 'icons\stipend.png' %}" style="margin-right: 12px;height: 26px;
                                 width: 30px;"><span
-                                style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span></div>
-                                <div style="margin-top: 7px;"><span><img src="{% static 'icons\calender.png' %}" style="margin-right: 12px;height: 26px;
+                                style="margin-right: 12px;">Stipend :-$ {{ internship.stipend }}</span><span><img src="{% static 'icons\calender.png' %}" style="margin-right: 12px;height: 26px;
                                     width: 30px;"></span><span style="margin-right: 12px;">Date
                                 and Time :- {{ internship.date }}</span></div></div>
                         <!-- <div class="mt-1 mb-1 spec-1"><span>Date and Time :- {{ internship.date }}</span></div> -->
@@ -175,19 +247,10 @@
                             font-weight: 700;">Other Criteria :- </span><span style="font-size: 19px;
                             ">{{ internship.other_qualifications }}</span></p></div>
                     </div>
-                    <div style="margin-top: 20px;margin-bottom: 24px;">
-                        <a href="{% url 'view_responses'  internship.iid %}"><button class="btn btn-primary"
-                                type="button" style="padding: 11px 15px;
-                            font-size: 15px;border-color: aliceblue;
-                            border-radius: 18px;    background-color: #2b2d84;">View Responses</button></a>
-                        <a href="{% url 'edit_internship'  internship.iid %}"><button class="btn btn-primary"
-                                type="button" style="padding: 11px 15px;
-                                font-size: 15px;border-color: aliceblue;
-                                border-radius: 18px;    background-color: #2b2d84;">Edit Internship</button></a>
-                        <a href="{% url 'delete_internship'  internship.iid %}"><button class="btn btn-primary"
-                                type="button" style="padding: 11px 15px;
-                                font-size: 15px;border-color: aliceblue;
-                                border-radius: 18px;    background-color: #2b2d84;">Delete Internship</button></a>
+                    <div style="margin-top: 20px;margin-bottom: 24px;    margin-left: 18px;">
+                        <a href="{% url 'view_responses'  internship.iid %}"><img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/000000/external-view-cyber-security-kiranshastry-gradient-kiranshastry-1.png"  style="width:50px;" /></a>
+                        <a href="{% url 'edit_internship'  internship.iid %}" ><img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/000000/external-edit-miscellaneous-kiranshastry-gradient-kiranshastry.png" style="width:42px;" /></a>
+                        <a href="{% url 'delete_internship'  internship.iid %}"><img src="https://img.icons8.com/external-kiranshastry-gradient-kiranshastry/64/000000/external-delete-miscellaneous-kiranshastry-gradient-kiranshastry.png" style="width:42px;" /></a>
                     </div>
                 </div>
                 {% endfor %}

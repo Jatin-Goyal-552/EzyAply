@@ -19,7 +19,63 @@
     body {
         background: #eee
     }
+    body {
+        background: #2d2d2d;
+    }
     
+    
+    .ftco-navbar-light1 {
+        background: #2d2d2d;
+        z-index: 3;
+        padding: 10px 10px;
+        font-size: 19px;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+        -moz-box-shadow: 0px 5px 20px -17px rgba(0, 0, 0, 0.34);
+        box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
+        width: inherit;
+    }
+    
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+    
+    .navbar-brand {
+        display: inline-block;
+        padding-top: .3125rem;
+        padding-bottom: .3125rem;
+        margin-right: 1rem;
+        font-size: 1.75rem;
+        line-height: inherit;
+        white-space: nowrap;
+        font-weight: 700;
+    }
+    .rounded {
+        border-radius: 1.75rem!important;
+    }
+    .border {
+        border: 6px solid #844e96!important;
+    }
+    .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link {
+        font-size: 18px;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-weight: 400;
+        color: #e6e6e6;
+        position: relative;
+        opacity: 1 !important;
+    }
+    .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link:hover {
+        color: #fec771;
+    }
+    .ftco-navbar-light1 .navbar-brand:hover, .ftco-navbar-light .navbar-brand:focus {
+        color: #fec771;
+    }
     .ratings i {
         font-size: 16px;
         color: red
@@ -59,7 +115,7 @@
     }
   </style>
   <body>
-    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+    <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light1" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="{% url 'home' %}">EzyAply</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,6 +125,7 @@
             <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="{% url 'internship_applied' user_id  %}" class="nav-link">Internship Applied</a></li> 
                 <li class="nav-item"><a href="{% url 'all_announcements_student' %}" class="nav-link">All Announcement</a></li>
+                <li class="nav-item"><a href="profile" class="nav-link">Profile</a></li>
                 <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link">Logout</a></li>
                 
             </ul>
@@ -76,8 +133,16 @@
         </div>
       </nav>
     
-    <h1>{{name}}</h1>
-    <div class="container mt-5 mb-5" style="font-family:Arial, sans-serif;">
+      <div id="usernamediv" style="text-align:center;margin-top: 62px;">
+        <h1 id="username"><span style="
+            font-family: Arial, sans-serif;
+            font-size: 40px;
+            text-transform: uppercase;
+            color: wheat;
+            letter-spacing: 7px;
+            word-spacing: 0px;
+            margin-bottom: 95px;">All Announcements</span></h1>
+    </div>    <div class="container mt-5 mb-5" style="font-family:Arial, sans-serif;">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
                 {% for announcement in announcements %}

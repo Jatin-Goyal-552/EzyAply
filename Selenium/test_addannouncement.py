@@ -10,17 +10,16 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
-class TestDownloadresponses():
+class TestAddannouncement():
   def setup_method(self):
     options = webdriver.ChromeOptions()    
     self.driver = webdriver.Chrome(executable_path="C:\webdrivers\chromedriver.exe",chrome_options=options)
     self.vars = {}
-    self.driver.implicitly_wait(10000)
-
+  
   def teardown_method(self):
     self.driver.quit()
   
-  def test_downloadresponses(self):
+  def test_addannouncement(self):
     self.driver.get("http://localhost:8000/login/")
     self.driver.set_window_size(1552, 840)
     self.driver.find_element(By.ID, "your_name").click()
@@ -37,10 +36,14 @@ class TestDownloadresponses():
     actions = ActionChains(self.driver)
     actions.double_click(element).perform()
     self.driver.find_element(By.ID, "signin").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".row:nth-child(1) > div > a:nth-child(1) > img").click()
-    self.driver.find_element(By.CSS_SELECTOR, "a:nth-child(1) > .btn").click()
+    self.driver.find_element(By.LINK_TEXT, "Make Announcement").click()
+    self.driver.find_element(By.ID, "id_announcement_date").click()
+    self.driver.find_element(By.ID, "id_announcement_date").click()
+    self.driver.find_element(By.ID, "id_announcement_date").send_keys("02-11-2021")
+    self.driver.find_element(By.ID, "id_announcement_text").click()
+    self.driver.find_element(By.ID, "id_announcement_text").send_keys("Nobody is selected for Microsoft internship.")
+    self.driver.find_element(By.CSS_SELECTOR, ".contact100-form-btn").click()
   
-test=TestDownloadresponses()
+test=TestAddannouncement()
 test.setup_method()
-test.test_downloadresponses()
-# test.teardown_method()
+test.test_addannouncement()

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-cz0#ukbd6qri=061t2os61&d01_^bftf^=0xy&t+$rxo4w7403
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ezyaply.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['ezyaply.herokuapp.com','localhost','EzyAply.pythonanywhere.com']
 
 
 # Application definition

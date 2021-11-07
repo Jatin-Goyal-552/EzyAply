@@ -107,26 +107,30 @@ def logout1(request):
 
 @login_required(login_url='login')
 def admin_home(request):
-    internship = Internships.objects.all().order_by('-iid') 
+    internship = Internships.objects.all()
              # print(internship[0].iid)
     if request.method == 'POST':
-        duration = request.POST['duration']
-        print("duration", duration, type(duration))
-        if duration != '0':
-            internship = Internships.objects.filter(duration__lte=duration).order_by('-iid')
-        semester = request.POST['semester']
-        print("semester", semester, type(semester))
-        if semester != '0':
-            internship = internship.filter(semester=semester).order_by('-iid')
-        stipend = request.POST['stipend']
-        print("stipend", stipend, type(stipend))
-        if stipend != '0':
-            internship = internship.filter(stipend__gte=stipend).order_by('-iid')
-        cpi = request.POST['cpi']
-        print("cpi", cpi, type(cpi))
-        if cpi != '0':
-            internship = internship.filter(cpi__lte=cpi).order_by('-iid')
-        
+        try:
+            preference = request.POST['vehicle1']
+            print('preference', preference)
+            duration = request.POST['duration']
+            print("duration", duration, type(duration))
+            if duration != '0':
+                internship = Internships.objects.filter(duration=duration)
+            semester = request.POST['semester']
+            print("semester", semester, type(semester))
+            if semester != '0':
+                internship = internship.filter(semester=semester)
+            stipend = request.POST['stipend']
+            print("stipend", stipend, type(stipend))
+            if stipend != '0':
+                internship = internship.filter(stipend=stipend)
+            cpi = request.POST['cpi']
+            print("cpi", cpi, type(cpi))
+            if cpi != '0':
+                internship = internship.filter(cpi=cpi)
+        except:
+            preference = '0'
     context = {
         'name': request.user,
         'internships': internship,
@@ -138,7 +142,7 @@ def admin_home(request):
 
 @login_required(login_url='login')
 def home(request):
-    internship = Internships.objects.all().order_by('-iid')
+    internship = Internships.objects.all()
     print(internship[0].iid)
     if request.method == 'POST':
         try:
@@ -227,7 +231,7 @@ def apply(request, id):
 def internship_applied(request, id):
     # applied=Apply.objects.filter(user=request.user.id)
     # user_applied=User.objects.filter(id=request.user.id)
-    applied = Apply.objects.filter(user=request.user.id).order_by('-a_id')
+    applied = Apply.objects.filter(user=request.user.id)
     # print("-------------------",str(applied[0].internship)[0])
     print("applied", applied)
     internship = []
@@ -340,7 +344,7 @@ def announcement(request):
 
 
 def all_announcements(request):
-    announcements = Announcement.objects.all().order_by('-an_id')
+    announcements = Announcement.objects.all()
     context = {
         'announcements': announcements,
     }
@@ -348,7 +352,7 @@ def all_announcements(request):
 
 
 def all_announcements_student(request):
-    announcements = Announcement.objects.all().order_by('-an_id')
+    announcements = Announcement.objects.all()
     context = {
         'announcements': announcements,
         'user_id': request.user.id

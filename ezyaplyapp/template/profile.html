@@ -15,19 +15,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
-    <title>Hello, world!</title>
+    <title>Profile</title>
   </head>
   <style>
     body {
         background: #eee
     }
     body {
-        background: #2d2d2d;
+        background: #8ab4ae;
     }
-    
-    
+    *{
+        font-family: 'Montserrat', sans-serif;
+        }
     .ftco-navbar-light1 {
-        background: #2d2d2d;
+        background: #345B63;
         z-index: 3;
         padding: 10px 10px;
         font-size: 19px;
@@ -37,14 +38,14 @@
         box-shadow: 0px 5px 20px -17px rgb(0 0 0 / 34%);
         width: inherit;
     }
-    
+
     a {
         color: #ffffff;
         text-decoration: none;
         background-color: transparent;
         -webkit-text-decoration-skip: objects;
     }
-    
+
     .navbar-brand {
         display: inline-block;
         padding-top: .3125rem;
@@ -59,7 +60,30 @@
         border-radius: 1.75rem!important;
     }
     .border {
-        border: 6px solid #844e96!important;
+        border: 2px solid #dbdbdb;
+                border-radius: 28px;
+                transition: all 200ms ease;
+                box-shadow: 14px 14px #345B63;
+    }
+    .border:hover {
+        box-shadow: 16px 16px #345B63;
+        transform:scale(1.02);
+        
+    }
+    #username {
+        text-shadow: 3px 3px #55a499;
+    font-family: Arial, sans-serif;
+    font-size: 43px;
+    text-transform: uppercase;
+    color: #202c47;
+    letter-spacing: 17px;
+    word-spacing: 10px;
+    margin-bottom: 95px;
+    text-decoration: underline;
+    font-weight: 700;
+    }
+    #username:hover {
+        transform:scale(1.03);
     }
     .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link {
         font-size: 18px;
@@ -71,6 +95,7 @@
         color: #e6e6e6;
         position: relative;
         opacity: 1 !important;
+        font-family: Poppins-Regular;
     }
     .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link:hover {
         color: #fec771;
@@ -246,14 +271,7 @@
       </nav>
     
       <div id="usernamediv" style="text-align:center;margin-top: 62px;">
-        <h1 id="username"><span style="
-            font-family: Arial, sans-serif;
-            font-size: 40px;
-            text-transform: uppercase;
-            color: wheat;
-            letter-spacing: 17px;
-            word-spacing: 10px;
-            margin-bottom: 95px;">Profile</span></h1>
+        <h1 id="username"><span >Profile</span></h1>
     </div>    <!-- <div class="container mt-5 mb-5">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10">
@@ -357,7 +375,7 @@
                                     <hr style="margin-top:-1px;">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Email</label>
+                                            <label>Personal Email</label>
                                         </div>
                                         <div class="col-md-6">
                                             <p>{{profile.user_email}}</p>
@@ -375,7 +393,7 @@
                                     <hr style="margin-top:-1px;">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label>Email</label>
+                                            <label>Institute Email</label>
                                         </div>
                                         <div class="col-md-6">
                                             <p>{{email}}</p>
@@ -387,7 +405,7 @@
                                             <label>Semester</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{profile.sem}}</p>
+                                            <p>{{profile.sem}} semester</p>
                                         </div>
                                     </div>
                                     <hr style="margin-top:-1px;">
@@ -396,7 +414,7 @@
                                             <label>CPI</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{profile.cpi}}</p>
+                                            <p>{{profile.cpi}} CPI</p>
                                         </div>
                                     </div>
                                     <hr style="margin-top:-1px;">
@@ -405,7 +423,7 @@
                                             <label>10th Precentage</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{profile.precentage_10}}</p>
+                                            <p>{{profile.precentage_10}}%</p>
                                         </div>
                                     </div>
                                     <hr style="margin-top:-1px;">
@@ -414,7 +432,7 @@
                                             <label>12th Precentage</label>
                                         </div>
                                         <div class="col-md-6">
-                                            <p>{{profile.precentage_12}}</p>
+                                            <p>{{profile.precentage_12}}%</p>
                                         </div>
                                     </div>
                                     <hr style="margin-top:-1px;">

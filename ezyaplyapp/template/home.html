@@ -16,16 +16,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Home Page</title>
 </head>
 <style>
     body {
         background: #2d2d2d;
     }
 
-    
+    body {
+        background: #8ab4ae;
+    }
+    *{
+        font-family: 'Montserrat', sans-serif;
+        }
     .ftco-navbar-light1 {
-        background: #2d2d2d;
+        background: #345B63;
         z-index: 3;
         padding: 10px 10px;
         font-size: 19px;
@@ -57,7 +62,30 @@
         border-radius: 1.75rem!important;
     }
     .border {
-        border: 6px solid #844e96!important;
+        border: 2px solid #dbdbdb;
+                border-radius: 28px;
+                transition: all 200ms ease;
+                box-shadow: 14px 14px #345B63;
+    }
+    .border:hover {
+        box-shadow: 16px 16px #345B63;
+        transform:scale(1.02);
+        
+    }
+    #username {
+        text-shadow: 3px 3px #55a499;
+    font-family: Arial, sans-serif;
+    font-size: 43px;
+    text-transform: uppercase;
+    color: #202c47;
+    letter-spacing: 17px;
+    word-spacing: 10px;
+    margin-bottom: 95px;
+    text-decoration: underline;
+    font-weight: 700;
+    }
+    #username:hover {
+        transform:scale(1.03);
     }
     .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link {
         font-size: 18px;
@@ -69,6 +97,7 @@
         color: #e6e6e6;
         position: relative;
         opacity: 1 !important;
+        font-family: Poppins-Regular;
     }
     .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link:hover {
         color: #fec771;
@@ -140,7 +169,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light1" id="ftco-navbar"
-        style="background-color:#2d2d2d;">
+        style="background-color:#345B63;">
         <div class="container">
             <a class="navbar-brand active" href="{% url 'home' %}">EzyAply</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -164,14 +193,7 @@
     </nav>
 
     <div id="usernamediv" style="text-align:center;margin-top: 62px;">
-        <h1 id="username"><span style="
-            font-family: Arial, sans-serif;
-            font-size: 40px;
-            text-transform: uppercase;
-            color: wheat;
-            letter-spacing: 17px;
-            word-spacing: 10px;
-            margin-bottom: 95px;">Welcome {{name}}</span></h1>
+        <h1 id="username"><span >Welcome {{name}}</span></h1>
     </div>
     <!-- <div class="container mt-5 mb-5" style="font-family:Arial, sans-serif;"> -->
     <!-- <div class="col-6">
@@ -179,11 +201,11 @@
         </div> -->
     <div style="margin:4% 3%;">
         <div class=" justify-content-center row" style="font-family:Arial, sans-serif;">
-            <div class="col-md-4 mt-5">
+            <div class="col-md-4 mt-3">
                 <form class="contact100-form validate-form" method="POST" action="" enctype="multipart/form-data" style="background-color: white;
                 padding: 31px;
-                border: 5px solid #a790d4;
-                border-radius: 56px;">
+                border: 2px solid #dbdbdb;
+                border-radius: 28px;">
                     {% csrf_token %}
                     <input type="checkbox" id="vehicle1" name="vehicle1" value="1" style="    width: 27px;
                 height: 19px;">
@@ -228,7 +250,7 @@
                     </button>
                 </form>
             </div>
-            <div class="col-md-7 mt-7" style="margin-left: 3%;margin-top: 22px;
+            <div class="col-md-7 mt-7" style="margin-left: 3%;margin-top: -5px;
         ">
                 {% for internship in internships %}
                 <div class="container">
@@ -252,7 +274,7 @@
                                     width: 30px;"></span><span style="margin-right: 12px;">Semester :- {{ internship.semester }}
                                     </span></div>
                                 <div style="margin-top: 7px;"><img src="{% static 'icons\stipend.png' %}" style="margin-right: 12px;height: 26px;
-                                width: 30px;"><span style="margin-right: 12px;">Stipend :-$ {{ internship.stipend}}</span>
+                                width: 30px;"><span style="margin-right: 12px;">Stipend :- Rs {{ internship.stipend}}</span>
                                     <span><img src="{% static 'icons\calender.png' %}" style="margin-right: 12px;height: 26px;
                                     width: 30px;"></span><span style="margin-right: 12px;">Date
                                         and Time :- {{ internship.date }}</span>

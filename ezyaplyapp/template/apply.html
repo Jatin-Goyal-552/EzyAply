@@ -35,19 +35,20 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Apply Form</title>
   </head>
   <style>
     body {
         background: #eee
     }
     body {
-      background: #2d2d2d;
+      background: #8ab4ae;
   }
-
-  
+  *{
+      font-family: 'Montserrat', sans-serif;
+      }
   .ftco-navbar-light1 {
-      background: #2d2d2d;
+      background: #345B63;
       z-index: 3;
       padding: 10px 10px;
       font-size: 19px;
@@ -58,8 +59,8 @@
       width: inherit;
   }
 
-  .white {
-      color: #ffffff;
+  a {
+      color: #201e9c;
       text-decoration: none;
       background-color: transparent;
       -webkit-text-decoration-skip: objects;
@@ -79,7 +80,30 @@
       border-radius: 1.75rem!important;
   }
   .border {
-      border: 6px solid #844e96!important;
+      border: 2px solid #dbdbdb;
+              border-radius: 28px;
+              transition: all 200ms ease;
+              box-shadow: 14px 14px #345B63;
+  }
+  .border:hover {
+      box-shadow: 16px 16px #345B63;
+      transform:scale(1.02);
+      
+  }
+  #username {
+      text-shadow: 3px 3px #55a499;
+  font-family: Arial, sans-serif;
+  font-size: 43px;
+  text-transform: uppercase;
+  color: #202c47;
+  letter-spacing: 17px;
+  word-spacing: 10px;
+  margin-bottom: 95px;
+  text-decoration: underline;
+  font-weight: 700;
+  }
+  #username:hover {
+      transform:scale(1.03);
   }
   .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link {
       font-size: 18px;
@@ -91,6 +115,7 @@
       color: #e6e6e6;
       position: relative;
       opacity: 1 !important;
+      font-family: Poppins-Regular;
   }
   .ftco-navbar-light1 .navbar-nav > .nav-item > .nav-link:hover {
       color: #fec771;
@@ -110,7 +135,10 @@
     justify-content: center;
     align-items: center;
     padding: 15px;
-    background: #2d2d2d;
+    background: #8ab4ae;
+}
+.navbar-brand:hover {
+  color: #fec771;
 }
     .ratings i {
         font-size: 16px;

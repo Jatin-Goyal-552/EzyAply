@@ -125,7 +125,7 @@ def admin_home(request):
         cpi = request.POST['cpi']
         print("cpi", cpi, type(cpi))
         if cpi != '0':
-            internship = internship.filter(cpi__lte=cpi).order_by('-iid')
+            internship = internship.filter(cpi__gte=cpi).order_by('-iid')
         
     context = {
         'name': request.user,
@@ -156,7 +156,7 @@ def home(request):
         cpi = request.POST['cpi']
         print("cpi", cpi, type(cpi))
         if cpi != '0':
-            internship = internship.filter(cpi__lte=cpi).order_by('-iid')
+            internship = internship.filter(cpi__gte=cpi).order_by('-iid')
     context = {
         'name': request.user,
         'internships': internship,

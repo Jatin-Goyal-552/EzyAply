@@ -34,8 +34,8 @@ def register(request):
             password = form.cleaned_data.get('password1')
             print("email", email)
             OTP = np.random.randint(100000, 999999)
-            email_subject = "OTP varification for Your account"
-            email_body = "Thanks for showing intrest EzyAply. OTP for your account is {}".format(
+            email_subject = "OTP verification for Your account"
+            email_body = "Thanks for showing intrest in EzyAply. OTP for your account is {}".format(
                 OTP)
             print(send_mail(email_subject, email_body,
                   settings.EMAIL_HOST_USER, [email], fail_silently=False))

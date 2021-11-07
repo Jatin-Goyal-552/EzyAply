@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cz0#ukbd6qri=061t2os61&d01_^bftf^=0xy&t+$rxo4w7403
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ezyaply.herokuapp.com']
+ALLOWED_HOSTS = ['ezyaply.herokuapp.com','localhost']
 
 
 # Application definition
@@ -128,6 +128,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT ='/static/'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[

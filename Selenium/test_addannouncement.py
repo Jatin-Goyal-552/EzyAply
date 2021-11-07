@@ -43,7 +43,7 @@ class TestAddannouncement():
     self.driver.find_element(By.ID, "id_announcement_text").click()
     self.driver.find_element(By.ID, "id_announcement_text").send_keys("Nobody is selected for Microsoft internship.")
     self.driver.find_element(By.CSS_SELECTOR, ".contact100-form-btn").click()
-  
+# cdc
 test=TestAddannouncement()
 test.setup_method()
 test.test_addannouncement()

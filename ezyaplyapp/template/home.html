@@ -165,6 +165,9 @@
         margin-right: -36px;
         margin-left: -56px;
     }
+    label {
+        font-size: 17px;
+    }
 </style>
 
 <body>
@@ -207,11 +210,9 @@
                 border: 2px solid #dbdbdb;
                 border-radius: 28px;">
                     {% csrf_token %}
-                    <input type="checkbox" id="vehicle1" name="vehicle1" value="1" style="    width: 27px;
-                height: 19px;">
-                    <label for="vehicle1">Search according to preference</label>
+                    
                     <hr>
-                    <label for="cars">Duration Of Internship:</label>
+                    <label for="cars">Max. Duration Of Internship:</label>
                     <br>
                     <input type="range" min="0" max="12" value="0" step="0.5" class="slider" id="myRange"
                         name="duration" style="width:100%;">
@@ -227,7 +228,7 @@
                         <option value="8">8 Semester</option>
                     </select>
                     <hr>
-                    <label for="cars">Stipend:</label>
+                    <label for="cars">Min. Stipend:</label>
                     <div class="slidecontainer">
                         <input type="range" min="0" max="100000" value="0" step="1000" class="slider2" id="myRange2"
                             name='stipend' style="width:100%;">

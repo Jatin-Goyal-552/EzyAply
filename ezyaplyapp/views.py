@@ -141,27 +141,22 @@ def home(request):
     internship = Internships.objects.all().order_by('-iid')
     print(internship[0].iid)
     if request.method == 'POST':
-        try:
-            preference = request.POST['vehicle1']
-            print('preference', preference)
-            duration = request.POST['duration']
-            print("duration", duration, type(duration))
-            if duration != '0':
-                internship = Internships.objects.filter(duration=duration)
-            semester = request.POST['semester']
-            print("semester", semester, type(semester))
-            if semester != '0':
-                internship = internship.filter(semester=semester)
-            stipend = request.POST['stipend']
-            print("stipend", stipend, type(stipend))
-            if stipend != '0':
-                internship = internship.filter(stipend=stipend)
-            cpi = request.POST['cpi']
-            print("cpi", cpi, type(cpi))
-            if cpi != '0':
-                internship = internship.filter(cpi=cpi)
-        except:
-            preference = '0'
+        duration = request.POST['duration']
+        print("duration", duration, type(duration))
+        if duration != '0':
+            internship = Internships.objects.filter(duration__lte=duration).order_by('-iid')
+        semester = request.POST['semester']
+        print("semester", semester, type(semester))
+        if semester != '0':
+            internship = internship.filter(semester=semester).order_by('-iid')
+        stipend = request.POST['stipend']
+        print("stipend", stipend, type(stipend))
+        if stipend != '0':
+            internship = internship.filter(stipend__gte=stipend).order_by('-iid')
+        cpi = request.POST['cpi']
+        print("cpi", cpi, type(cpi))
+        if cpi != '0':
+            internship = internship.filter(cpi__lte=cpi).order_by('-iid')
     context = {
         'name': request.user,
         'internships': internship,

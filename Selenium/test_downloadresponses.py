@@ -21,7 +21,7 @@ class TestDownloadresponses():
     self.driver.quit()
   
   def test_downloadresponses(self):
-    self.driver.get("http://localhost:8000/login/")
+    self.driver.get("http://ezzyaply.pythonanywhere.com/login/")
     self.driver.set_window_size(1552, 840)
     self.driver.find_element(By.ID, "your_name").click()
     self.driver.find_element(By.ID, "your_name").click()

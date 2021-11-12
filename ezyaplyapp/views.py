@@ -165,7 +165,7 @@ def home(request):
     print(context)
     return render(request, 'home.html', context)
 
-
+@login_required(login_url='login')
 def apply(request, id):
     intern = Internships.objects.filter(iid=id)
     # print("==========",intern)
@@ -219,6 +219,7 @@ def apply(request, id):
     return render(request, 'apply.html', context)
 
 
+@login_required(login_url='login')
 def internship_applied(request, id):
     # applied=Apply.objects.filter(user=request.user.id)
     # user_applied=User.objects.filter(id=request.user.id)
@@ -244,7 +245,7 @@ def internship_applied(request, id):
 
     return render(request, 'internship_applied.html', context)
 
-
+@login_required(login_url='login')
 def add_internship(request):
     form = AddInternshipForm()
     if request.method == 'POST':
@@ -270,7 +271,7 @@ def add_internship(request):
                'user_id': request.user.id}
     return render(request, 'add_internship.html', context)
 
-
+@login_required(login_url='login')
 def view_responses(request, id):
     responses = Apply.objects.filter(internship=id)
     global response_id
@@ -283,7 +284,7 @@ def view_responses(request, id):
     }
     return render(request, 'view_responses.html', context)
 
-
+@login_required(login_url='login')
 def download(request):
     global response_id
     print("============", response_id)
@@ -311,7 +312,7 @@ def download(request):
 
     return response
 
-
+@login_required(login_url='login')
 def announcement(request):
     form = MadeAnnouncementForm()
     if request.method == 'POST':
@@ -333,7 +334,7 @@ def announcement(request):
                'user_id': request.user.id}
     return render(request, 'announcement.html', context)
 
-
+@login_required(login_url='login')
 def all_announcements(request):
     announcements = Announcement.objects.all().order_by('-an_id')
     context = {
@@ -341,7 +342,7 @@ def all_announcements(request):
     }
     return render(request, 'all_announcement.html', context)
 
-
+@login_required(login_url='login')
 def all_announcements_student(request):
     announcements = Announcement.objects.all().order_by('-an_id')
     context = {
@@ -350,7 +351,7 @@ def all_announcements_student(request):
     }
     return render(request, 'all_announcements_student.html', context)
 
-
+@login_required(login_url='login')
 def edit_internship(request, id):
     intern = Internships.objects.get(iid=id)
     # initial_data={
@@ -375,13 +376,13 @@ def edit_internship(request, id):
                'user_id': request.user.id}
     return render(request, 'edit_internship.html', context)
 
-
+@login_required(login_url='login')
 def delete_internship(request, id):
     intern = Internships.objects.get(iid=id)
     intern.delete()
     return redirect('admin_home')
 
-
+@login_required(login_url='login')
 def edit_announcement(request, id):
     announcement = Announcement.objects.get(an_id=id)
     form = MadeAnnouncementForm(instance=announcement)
@@ -396,13 +397,13 @@ def edit_announcement(request, id):
                'user_id': request.user.id}
     return render(request, 'edit_announcement.html', context)
 
-
+@login_required(login_url='login')
 def delete_announcement(request, id):
     announcement = Announcement.objects.get(an_id=id)
     announcement.delete()
     return redirect('all_announcement')
 
-
+@login_required(login_url='login')
 def profile(request):
     # user=User.objects.get(id=request.user.id)
     try:
@@ -419,7 +420,7 @@ def profile(request):
         print("hii")
         return render(request, 'add_profile.html', {'user_id': request.user.id})
 
-
+@login_required(login_url='login')
 def edit_profile(request, id):
     profile = Profile.objects.get(p_id=id)
     form = ProfileForm(instance=profile)
@@ -435,7 +436,7 @@ def edit_profile(request, id):
                'user_id': request.user.id}
     return render(request, 'edit_profile.html', context)
 
-
+@login_required(login_url='login')
 def form_profile(request, id):
     initial_data = {
         'user': request.user.id,
@@ -452,7 +453,7 @@ def form_profile(request, id):
                'user_id': request.user.id}
     return render(request, 'form_profile.html', context)
 
-
+@login_required(login_url='login')
 def download_pdf(request, id):
     responses = Apply.objects.filter(internship=id)
     os.mkdir("All_resume/"+str(id))

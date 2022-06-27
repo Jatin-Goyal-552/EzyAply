@@ -19,6 +19,13 @@ from django.conf import settings
 import numpy as np
 import urllib.request
 import os
+from io import BytesIO
+import zipfile
+import os
+import zipfile
+from io import BytesIO
+
+
 name = ''
 response_id = ''
 
@@ -454,16 +461,28 @@ def form_profile(request, id):
     return render(request, 'form_profile.html', context)
 
 @login_required(login_url='login')
-def download_pdf(request, id):
-    responses = Apply.objects.filter(internship=id)
-    os.mkdir("All_resume/"+str(id))
+def download_resume(request):
+    responses = Apply.objects.filter(internship=response_id)
+    filenames = []
     for response in responses:
-        url = response.imageURL
-        url = "http://localhost:8000"+str(response.imageURL)
-        print("url", url)
-        print("response.resume", response.resume)
-        location = os.path.join("All_resume/", str(id), str(response.resume))
-        # location="All_resume/"+str(id)+str(response.resume)
-        print("location", location)
-        urllib.request.urlretrieve(url, location)
-    return redirect('admin_home')
+        filenames.append("media/" + response.resume.name)
+    # filenames = ["C:/Users/LENOVO/projects/swe project/ezyaply/media/report2.pdf", "C:/Users/LENOVO/projects/swe project/ezyaply/media/report2_aU3tWbl.pdf"]
+    # filenames = ["media/report2.pdf", "media/report2_aU3tWbl.pdf"]
+    print(filenames)
+    zip_subdir = f"allresume{response_id}"
+    zip_filename = "%s.zip" % zip_subdir
+
+    s = BytesIO()
+    zf = zipfile.ZipFile(s, "w")
+
+    for fpath in filenames:
+        fdir, fname = os.path.split(fpath)
+        zip_path = os.path.join(zip_subdir, fname)
+        zf.write(fpath, zip_path)
+
+    zf.close()
+
+    resp = HttpResponse(s.getvalue(), content_type = "application/x-zip-compressed")
+    resp['Content-Disposition'] = 'attachment; filename=%s' % zip_filename
+
+    return resp 

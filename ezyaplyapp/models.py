@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import os
 
 # Create your models here.
 class Internships(models.Model):
@@ -37,6 +38,7 @@ class Apply(models.Model):
         except:
         	url = ''
         return url
+   
 
 class Announcement(models.Model):
     an_id=models.AutoField(primary_key=True)

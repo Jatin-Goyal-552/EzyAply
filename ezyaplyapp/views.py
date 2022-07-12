@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.urls import reverse
 from .models import *
-# Create your views here.
 from django.shortcuts import render, HttpResponse
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
@@ -24,11 +23,14 @@ import zipfile
 import os
 import zipfile
 from io import BytesIO
+from django.contrib.auth.decorators import user_passes_test
 
 
 name = ''
 response_id = ''
 
+def super_user_check(user):
+    return user.is_superuser
 
 def register(request):
     global username, email, password, OTP
@@ -47,10 +49,6 @@ def register(request):
             print(send_mail(email_subject, email_body,
                   settings.EMAIL_HOST_USER, [email], fail_silently=False))
             return render(request, 'otp2.html')
-            # form.save()
-            # user = form.cleaned_data.get('username')
-            # messages.success(request, 'Account was created for ' + user)
-            # return redirect('login')
     context = {'form': form}
     return render(request, 'register.html', context)
 
@@ -83,15 +81,6 @@ def login1(request):
         if user is not None:
             login(request, user)
             if request.user.is_superuser:
-                # internship=Internships.objects.all()
-                # # print(internship[0].iid)
-                # context={
-                #     'name':request.user,
-                #     'internships':internship,
-                #     'user_id':request.user.id
-                # }
-                # print(context)
-                # return render(request, 'admin_home.html',context)
                 return redirect('admin_home')
             global name
             name = username
@@ -112,7 +101,7 @@ def logout1(request):
     return redirect('login')
 
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def admin_home(request):
     internship = Internships.objects.all().order_by('-iid') 
              # print(internship[0].iid)
@@ -175,7 +164,6 @@ def home(request):
 @login_required(login_url='login')
 def apply(request, id):
     intern = Internships.objects.filter(iid=id)
-    # print("==========",intern)
     try:
         profile = Profile.objects.filter(user=request.user.id)
         initial_data = {
@@ -252,16 +240,13 @@ def internship_applied(request, id):
 
     return render(request, 'internship_applied.html', context)
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def add_internship(request):
     form = AddInternshipForm()
     if request.method == 'POST':
         form = AddInternshipForm(request.POST)
         if form.is_valid():
             form.save()
-            # users=User.objects.all()
-            # for user in users:
-            #     print(user[0].email)
             company_name=form.cleaned_data['company_name']
             users = User.objects.all()
             lst = []
@@ -278,7 +263,7 @@ def add_internship(request):
                'user_id': request.user.id}
     return render(request, 'add_internship.html', context)
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def view_responses(request, id):
     responses = Apply.objects.filter(internship=id)
     global response_id
@@ -291,7 +276,7 @@ def view_responses(request, id):
     }
     return render(request, 'view_responses.html', context)
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def download(request):
     global response_id
     print("============", response_id)
@@ -319,7 +304,7 @@ def download(request):
 
     return response
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def announcement(request):
     form = MadeAnnouncementForm()
     if request.method == 'POST':
@@ -358,19 +343,10 @@ def all_announcements_student(request):
     }
     return render(request, 'all_announcements_student.html', context)
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def edit_internship(request, id):
     intern = Internships.objects.get(iid=id)
-    # initial_data={
-    #     'company_name':intern[0].company_name,
-    #     'description':intern[0].description,
-    #     'duration':intern[0].duration,
-    #     'cpi':intern[0].cpi,
-    #     'semester':intern[0].semester,
-    #     'other_qualifications':intern[0].other_qualifications,
-    #     'stipend':intern[0].stipend,
-    #     'date':intern[0].date
-    # }
+    
     form = AddInternshipForm(instance=intern)
     if request.method == 'POST':
         form = AddInternshipForm(request.POST, instance=intern)
@@ -383,13 +359,13 @@ def edit_internship(request, id):
                'user_id': request.user.id}
     return render(request, 'edit_internship.html', context)
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def delete_internship(request, id):
     intern = Internships.objects.get(iid=id)
     intern.delete()
     return redirect('admin_home')
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def edit_announcement(request, id):
     announcement = Announcement.objects.get(an_id=id)
     form = MadeAnnouncementForm(instance=announcement)
@@ -404,7 +380,7 @@ def edit_announcement(request, id):
                'user_id': request.user.id}
     return render(request, 'edit_announcement.html', context)
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def delete_announcement(request, id):
     announcement = Announcement.objects.get(an_id=id)
     announcement.delete()
@@ -460,14 +436,12 @@ def form_profile(request, id):
                'user_id': request.user.id}
     return render(request, 'form_profile.html', context)
 
-@login_required(login_url='login')
+@user_passes_test(super_user_check, login_url='login')
 def download_resume(request):
     responses = Apply.objects.filter(internship=response_id)
     filenames = []
     for response in responses:
         filenames.append("media/" + response.resume.name)
-    # filenames = ["C:/Users/LENOVO/projects/swe project/ezyaply/media/report2.pdf", "C:/Users/LENOVO/projects/swe project/ezyaply/media/report2_aU3tWbl.pdf"]
-    # filenames = ["media/report2.pdf", "media/report2_aU3tWbl.pdf"]
     print(filenames)
     zip_subdir = f"allresume{response_id}"
     zip_filename = "%s.zip" % zip_subdir
